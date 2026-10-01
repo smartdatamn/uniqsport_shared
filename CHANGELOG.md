@@ -3,6 +3,19 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.3.0 — unreleased (Phase A, local only)
+
+### Added
+- `src/events.js`: `isUpcoming`, `splitCompetitions`, `eventCoverUrl`,
+  `eventPictureUrls`, `locationPoint`, `locationAddress`, `genderKey`,
+  `PICTURE_TYPE`. The competition list and event detail logic both clients
+  need. Unlike the mobile app's inline versions, upcoming/past is decided in
+  Ulaanbaatar time, a location without a point does not crash, and a missing
+  address part is skipped instead of printing "undefined".
+- 8 strings for the portal's browse pages: `sports`, `noUpcomingCompetitions`,
+  `noPastCompetitions`, `registrationOpen`, `registrationClosed`,
+  `webRegistrationSoon`, `webCompetitorsSoon`, `eventLocation`.
+
 ## 0.2.0 — unreleased (Phase A, local only)
 
 ### Added

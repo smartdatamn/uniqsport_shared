@@ -47,6 +47,11 @@ export {
 export { readEventConfig, registrationWindow, canPay, canEdit, EVENT_TYPE } from './eventConfig.js';
 
 export {
+    isUpcoming, splitCompetitions, eventCoverUrl, eventPictureUrls,
+    locationPoint, locationAddress, genderKey, PICTURE_TYPE,
+} from './events.js';
+
+export {
     getUserInfo, logoutUser, storeUser, storeSession, checkUser, checkIdentity,
     sendEmailCode, verifyEmailCode, resetPasswordByEmail, getUserByPhoneNumber,
     sendVerificationCode, signInUser, updateUserInfo, refreshUserInfo,

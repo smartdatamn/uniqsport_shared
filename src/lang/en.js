@@ -536,4 +536,14 @@ export const en = {
     languageEn: 'English',
     portalWelcome: 'Welcome to UniQ Sport',
     portalIntro: 'Browse competitions, register your athletes and pay entry fees — the same as in the UniQ Sport app.',
+
+    // Web portal: sports, competitions, event detail
+    sports: 'Sports',
+    noUpcomingCompetitions: 'There are no upcoming competitions right now.',
+    noPastCompetitions: 'There are no past competitions.',
+    registrationOpen: 'Registration is open',
+    registrationClosed: 'Registration has closed',
+    webRegistrationSoon: 'Registering on the web is coming soon. For now, please register in the UniQ Sport app.',
+    webCompetitorsSoon: 'The competitor list is coming to the web soon. For now, please view it in the UniQ Sport app.',
+    eventLocation: 'Location',
 };

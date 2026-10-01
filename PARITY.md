@@ -7,8 +7,8 @@ behind a flag defaulting off, and the **Notes** column says why.
 
 | Feature | Shared | Mobile (`uniqsport`) | Portal (`uniqsport_portal`) | Notes |
 |---|---|---|---|---|
-| Browse sports & competitions | 0.1.0 | shipped | — | |
-| Event detail (map, countdown) | 0.1.0 | shipped | — | `/comp/event/find/id` works only against production (`view_organization_search` missing elsewhere) |
+| Browse sports & competitions | 0.3.0 | shipped | chunk 3 | Portal splits upcoming/past in Ulaanbaatar time via `splitCompetitions`; mobile still uses device time |
+| Event detail (map, countdown) | 0.3.0 | shipped | chunk 3 (map: Leaflet/OSM) | `/comp/event/find/id` works only against production (`view_organization_search` missing elsewhere) |
 | Sign in / sign up (phone, email) | 0.1.0 | shipped | — | Portal waits for `POST /core/user/login` (plan 0.6) |
 | Profile & identity changes | 0.1.0 | shipped | — | |
 | Athlete records | 0.1.0 | shipped | — | |

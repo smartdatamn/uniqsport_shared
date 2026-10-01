@@ -536,4 +536,14 @@ export const mn = {
     languageEn: 'English',
     portalWelcome: 'UniQ Sport-д тавтай морил',
     portalIntro: 'Тэмцээнүүдийг үзэж, тамирчдаа бүртгүүлж, оролцооны хураамжаа төлөөрэй — UniQ Sport аппын адилаар.',
+
+    // Web portal: sports, competitions, event detail
+    sports: 'Спорт',
+    noUpcomingCompetitions: 'Удахгүй болох тэмцээн одоогоор алга.',
+    noPastCompetitions: 'Болж өнгөрсөн тэмцээн алга.',
+    registrationOpen: 'Бүртгэл нээлттэй',
+    registrationClosed: 'Бүртгэл хаагдсан',
+    webRegistrationSoon: 'Вэбээр бүртгүүлэх боломж удахгүй нэмэгдэнэ. Одоогоор UniQ Sport аппаар бүртгүүлнэ үү.',
+    webCompetitorsSoon: 'Оролцогчдын жагсаалтыг вэбээс удахгүй үзэх боломжтой болно. Одоогоор UniQ Sport аппаар үзнэ үү.',
+    eventLocation: 'Байршил',
 };
