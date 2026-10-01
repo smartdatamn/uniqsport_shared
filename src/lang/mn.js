@@ -546,4 +546,16 @@ export const mn = {
     webRegistrationSoon: 'Вэбээр бүртгүүлэх боломж удахгүй нэмэгдэнэ. Одоогоор UniQ Sport аппаар бүртгүүлнэ үү.',
     webCompetitorsSoon: 'Оролцогчдын жагсаалтыг вэбээс удахгүй үзэх боломжтой болно. Одоогоор UniQ Sport аппаар үзнэ үү.',
     eventLocation: 'Байршил',
+
+    // Web portal: signing in, signing up, resetting a password
+    sessionExpired: 'Нэвтрэлтийн хугацаа дууссан байна. Дахин нэвтэрнэ үү.',
+    loginMissingFields: 'Утасны дугаар эсвэл и-мэйл хаяг, нууц үгээ оруулна уу.',
+    phoneCodeSent: '{phone} дугаар руу 4 оронтой код илгээлээ. Кодоо доор оруулна уу.',
+    noAccountYet: 'Бүртгэлгүй юу?',
+    haveAccount: 'Бүртгэлтэй юу?',
+    accountCreated: 'Таны бүртгэл үүслээ. Нэвтэрнэ үү.',
+    newPassword: 'Шинэ нууц үг',
+    changeIdentity: 'Өөр дугаар, хаяг ашиглах',
+    codeResent: 'Шинэ код илгээлээ.',
+    sendNewCode: 'Шинэ код авах',
 };

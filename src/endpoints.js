@@ -61,6 +61,12 @@ export const ENDPOINT_PATHS = Object.freeze({
     URL_USER_REGISTER_TOKEN: '/core/user/register/token',
     URL_USER_REGISTER: '/core/user/register',
     URL_USER_CHECK: '/core/user/check',
+    // Token sign-in: POST only, the password in the body. login returns
+    // {token, token_type, expires_at} beside data; logout and me need the
+    // token. The portal uses these and never URL_USER_CHECK.
+    URL_USER_LOGIN: '/core/user/login',
+    URL_USER_LOGOUT: '/core/user/logout',
+    URL_USER_ME: '/core/user/me',
     URL_USER_GET_APPLE: '/core/user/get/apple',
     URL_USER_GET_PHONENUMBER: '/core/user/get/phonenumber',
     URL_USER_GET_ID: '/core/user/get/id',

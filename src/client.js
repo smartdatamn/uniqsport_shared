@@ -1,5 +1,6 @@
 import { ENDPOINT_PATHS } from './endpoints.js';
 import { getConfig, getFetch, getStorage, STORAGE_KEYS } from './config.js';
+import { clearStoredSession, emitSession } from './session.js';
 
 /**
  * The compware API client.
@@ -155,9 +156,13 @@ export async function api(endpoint, options = {}) {
 
     const headers = { Accept: 'application/json', [API_VERSION_HEADER]: API_VERSION };
 
+    let sentToken = false;
     if (options.auth !== false) {
         const token = await getToken();
-        if (token) headers.Authorization = 'Bearer ' + token;
+        if (token) {
+            headers.Authorization = 'Bearer ' + token;
+            sentToken = true;
+        }
     }
 
     const init = { method, headers };
@@ -233,6 +238,18 @@ export async function api(endpoint, options = {}) {
         }
     } finally {
         if (timer) clearTimeout(timer);
+    }
+
+    // compware answers EVERY request carrying a dead token with 401
+    // auth_invalid, public ones included — it never quietly falls back to
+    // anonymous. So a stored token that expired would break the whole app,
+    // browse pages and all. Forget it, tell the UI, and ask again without it:
+    // a public call then simply works, and a token-only one comes back
+    // auth_required, which is the truth.
+    if (sentToken && envelope.code === 'auth_invalid') {
+        await clearStoredSession();
+        emitSession('expired');
+        return api(endpoint, { ...options, auth: false });
     }
 
     if (options.throw && !envelope.ok) {

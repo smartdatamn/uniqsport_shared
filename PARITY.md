@@ -9,7 +9,7 @@ behind a flag defaulting off, and the **Notes** column says why.
 |---|---|---|---|---|
 | Browse sports & competitions | 0.3.0 | shipped | chunk 3 | Portal splits upcoming/past in Ulaanbaatar time via `splitCompetitions`; mobile still uses device time |
 | Event detail (map, countdown) | 0.3.0 | shipped | chunk 3 (map: Leaflet/OSM) | `/comp/event/find/id` works only against production (`view_organization_search` missing elsewhere) |
-| Sign in / sign up (phone, email) | 0.1.0 | shipped | — | Portal waits for `POST /core/user/login` (plan 0.6) |
+| Sign in / sign up / password reset (phone, email) | 0.4.0 | shipped (legacy `GET /check`, no token) | chunk 4 (token) | Same flow and refusals via `account.js`; mobile moves to it when it adopts tokens |
 | Profile & identity changes | 0.1.0 | shipped | — | |
 | Athlete records | 0.1.0 | shipped | — | |
 | Individual registration | 0.1.0 | shipped | — | |

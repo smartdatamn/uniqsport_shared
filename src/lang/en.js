@@ -546,4 +546,16 @@ export const en = {
     webRegistrationSoon: 'Registering on the web is coming soon. For now, please register in the UniQ Sport app.',
     webCompetitorsSoon: 'The competitor list is coming to the web soon. For now, please view it in the UniQ Sport app.',
     eventLocation: 'Location',
+
+    // Web portal: signing in, signing up, resetting a password
+    sessionExpired: 'Your session has expired. Please sign in again.',
+    loginMissingFields: 'Enter your phone number or e-mail address, and your password.',
+    phoneCodeSent: 'We sent a 4-digit code to {phone}. Enter it below.',
+    noAccountYet: "Don't have an account?",
+    haveAccount: 'Already have an account?',
+    accountCreated: 'Your account has been created. Please sign in.',
+    newPassword: 'New password',
+    changeIdentity: 'Use a different number or address',
+    codeResent: 'A new code has been sent.',
+    sendNewCode: 'Send a new code',
 };

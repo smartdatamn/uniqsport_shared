@@ -79,7 +79,9 @@ have become shims, at which point this package is the source of truth.
 | `src/config.js` | `configure()`, storage adapters, `STORAGE_KEYS` |
 | `src/endpoints.js` | every compware path, keyed by the mobile app's `URL_*` constant names |
 | `src/client.js` | `api()` — the normalised client; `fetchJson()` — the legacy contract |
-| `src/auth.js` | account and identity calls (from mobile `UserHelper`) |
+| `src/auth.js` | account and identity calls (from mobile `UserHelper`) — raw responses, legacy |
+| `src/account.js` | token sign-in (`login`/`logout`/`fetchMe`) and the signup / reset flows, on `api()` |
+| `src/session.js` | `subscribeSession()` — signed_in / signed_out / expired events |
 | `src/i18n.js`, `src/lang/{mn,en}.js` | `tr()`, `getItemField()`, the string tables |
 | `src/errors.js` | the single failure-code → translation-key map |
 | `src/payments.js` | QPay parsing, `invoiceKind()`, `pollUntilPaid()` |
@@ -119,17 +121,36 @@ have become shims, at which point this package is the source of truth.
   `invalid_response`. `{throw: true}` gives an `ApiError` instead — that is the
   form TanStack Query wants.
 
-## Identity, today and after token auth
+## Identity: two paths during the transition
 
-compware authenticates nothing yet: every account call sends the stored
-`user_id`, which is the only credential. The package is ready for token auth
-(plan chunk 0.6) without a release: `storeSession()` keeps a `token` the moment
-compware returns one beside the user row, and `api()` sends it as
-`Authorization: Bearer`. Until then that path is inert.
+compware is dual-mode (its CLAUDE.md, "Token auth"). **With a bearer token the
+token decides who the caller is** — compware overwrites `user_id` / `userId`
+in the request. **Without one, the `user_id` sent is the only credential**, as
+it has always been.
 
-**The portal must not log in with `checkUser()`** — it sends the password in a
-query string, as the mobile app always has. The portal waits for
-`POST /core/user/login`.
+- **Token path — `account.js`, used by the portal.** `login()` posts to
+  `POST /core/user/login` (password in the body), stores the profile and the
+  token through `storeSession()`, and emits `signed_in`. `api()` then sends
+  `Authorization: Bearer` on every call. `logout()` revokes it server-side and
+  forgets it locally even offline. `fetchMe()` re-reads the user.
+- **Legacy path — `auth.js`, used by the mobile app.** `checkUser()` sends the
+  password in a query string and gets no token. Unchanged so no screen had to
+  move; the app switches to `account.js` when it adopts tokens (an OTA-able,
+  JS-only change). **The portal must never call `checkUser()`.**
+
+**A dead token is handled inside `api()`.** compware answers *every* request
+carrying a bad token with 401 `auth_invalid` — public ones too — rather than
+falling back to anonymous. So `api()` clears the stored token and profile,
+emits `expired`, and retries the call once without the token. Without that, an
+expired token would take the browse pages down with it.
+
+The signup and reset flows are `startVerification` → `confirmVerification`
+(→ a `proof`) → `completeSignup` / `completeReset`, each finishing with a
+`login()`. They are the mobile PhoneNumberEnter → PhoneNumberValidate →
+ProfileEdit sequence, including its client-side refusals
+(`already_registered`, `not_registered`), so both apps refuse the same things.
+The phone reset deliberately never reads the account: `/get/phonenumber` hands
+the whole user row to anyone who asks.
 
 ## How the apps consume it
 

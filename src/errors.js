@@ -35,6 +35,19 @@ export const ERROR_KEYS = Object.freeze({
     ticket_invalid: 'verificationExpired',
     ticket_expired: 'verificationExpired',
 
+    // Signing in (POST /core/user/login) and the token
+    invalid_request: 'loginMissingFields',
+    invalid_credentials: 'loginWrongCredentials',
+    email_not_verified: 'emailNotVerified',
+    phone_not_verified: 'phoneNotVerifiedLogin',
+    auth_required: 'loginRequired',
+    auth_invalid: 'sessionExpired',
+    // Client-side, from account.startVerification — the mobile screen's own
+    // checks before it sends a code.
+    already_registered: 'alertAlreadRegistered',
+    not_registered: 'alertNotRegistered',
+    sms_failed: 'alertMsgError',
+
     // Codes
     code_invalid: 'codeWrong',
     code_expired: 'codeExpired',

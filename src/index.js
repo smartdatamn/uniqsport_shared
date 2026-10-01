@@ -59,6 +59,15 @@ export {
     resendEmailVerification, deleteProfile,
 } from './auth.js';
 
+// Token sign-in and the signup / reset flows, on api(). Kept out of auth.js
+// so the UserHelper facade below — the mobile app's — stays exactly as it was.
+export {
+    login, logout, fetchMe, startVerification, confirmVerification,
+    completeSignup, completeReset, passwordProblem, PURPOSE,
+} from './account.js';
+
+export { subscribeSession } from './session.js';
+
 /*
  * Drop-in facades with the exact shape of the mobile app's helper classes, so
  * uniqsport/app/classes/*.js can become one-line re-exports and not a single
