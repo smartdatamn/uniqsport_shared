@@ -81,7 +81,8 @@ have become shims, at which point this package is the source of truth.
 | `src/client.js` | `api()` — the normalised client; `fetchJson()` — the legacy contract |
 | `src/auth.js` | account and identity calls (from mobile `UserHelper`) — raw responses, legacy |
 | `src/account.js` | token sign-in (`login`/`logout`/`fetchMe`) and the signup / reset flows, on `api()` |
-| `src/session.js` | `subscribeSession()` — signed_in / signed_out / expired events |
+| `src/profile.js` | profile editing on `api()`: names, phone / address changes, delete |
+| `src/session.js` | `subscribeSession()` — signed_in / signed_out / expired / deleted events |
 | `src/i18n.js`, `src/lang/{mn,en}.js` | `tr()`, `getItemField()`, the string tables |
 | `src/errors.js` | the single failure-code → translation-key map |
 | `src/payments.js` | QPay parsing, `invoiceKind()`, `pollUntilPaid()` |

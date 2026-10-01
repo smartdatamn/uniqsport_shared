@@ -3,6 +3,17 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.5.0 — unreleased (Phase A, local only)
+
+### Added
+- `src/profile.js`, on `api()`, all POST: `reloadProfile`, `updateProfile`,
+  `startPhoneChange`, `confirmPhoneChange`, `startEmailChange`,
+  `confirmEmailChange`, `resendEmailCode`, `deleteAccount`. A successful
+  answer carrying the user row rewrites the stored profile.
+- Session event `deleted`, emitted by `deleteAccount()`.
+- 4 strings: `change`, `accountNoEmail`, `signInDetails`, `accountDeleted`.
+  Mongolian is a first draft.
+
 ## 0.4.0 — unreleased (Phase A, local only)
 
 ### Added

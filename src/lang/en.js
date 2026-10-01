@@ -558,4 +558,10 @@ export const en = {
     changeIdentity: 'Use a different number or address',
     codeResent: 'A new code has been sent.',
     sendNewCode: 'Send a new code',
+
+    // Web portal: profile
+    change: 'Change',
+    accountNoEmail: 'No e-mail address on your account',
+    signInDetails: 'Sign-in details',
+    accountDeleted: 'Your profile has been deleted.',
 };

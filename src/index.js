@@ -68,6 +68,12 @@ export {
 
 export { subscribeSession } from './session.js';
 
+// Profile editing on api(): names, phone / address changes, delete.
+export {
+    reloadProfile, updateProfile, startPhoneChange, confirmPhoneChange,
+    startEmailChange, confirmEmailChange, resendEmailCode, deleteAccount,
+} from './profile.js';
+
 /*
  * Drop-in facades with the exact shape of the mobile app's helper classes, so
  * uniqsport/app/classes/*.js can become one-line re-exports and not a single

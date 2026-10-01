@@ -448,16 +448,16 @@ export const mn = {
     membershipFee: 'Гишүүнчлэлийн хураамж',
     membershipRequiredIntro: 'Танд энэ спортод энэ тэмцээнд хамаарах гишүүнчлэл алга байна. Эхлээд гишүүнчлэлээ авч, дараа нь тэмцээний хураамжаа төлнө.',
     membershipPaidNext: 'Гишүүнчлэл амжилттай төлөгдлөө. Одоо тэмцээний хураамжаа төлнө үү.',
-    membershipActive: 'Танд идэвхтэй гишүүнчлэл аль хэдийн байна.',
+    membershipActive: 'Таны гишүүнчлэл идэвхтэй байна.',
     errorTemporary: 'Түр зуурын алдаа гарлаа. Дахин оролдоно уу.',
-    errorMembershipTypeNotFound: 'Тухайн спортод гишүүнчлэлийн төрөл тохируулаагүй байна. Дэмжлэгийн албатай холбогдоно уу.',
+    errorMembershipTypeNotFound: 'Тухайн спортод гишүүнчлэлийн төрөл тохируулаагүй байна. Үйлчилгээний албатай холбогдоно уу.',
     errorRegistrationNotFound: 'Бүртгэл олдсонгүй. Бүртгэлийн жагсаалтаа сэргээнэ үү.',
     membershipChooseSport: 'Спортоо сонгоно уу',
     membershipChooseAthlete: 'Тамирчны анкетаа сонгоно уу',
     membershipRenewIntro: 'Гишүүнчлэл нь сонгосон спортод нэг хуанлийн жилийн хугацаанд хүчинтэй.',
     membershipValidUntil: 'Танд идэвхтэй гишүүнчлэл байна. {date} хүртэл хүчинтэй.',
     membershipCreated: 'Таны гишүүнчлэл үүслээ.',
-    membershipNoAthlete: 'Танд энэ спортод тамирчны анкет алга байна. Эхлээд тэмцээний бүртгэлээс анкетаа үүсгэнэ үү.',
+    membershipNoAthlete: 'Танд энэ спортын хувьд тамирчны анкет алга байна. Эхлээд тэмцээний бүртгэлээс анкетаа үүсгэнэ үү.',
     verified: 'Баталгаажсан',
     notVerified: 'Баталгаажаагүй',
     resend: 'Дахин илгээх',
@@ -490,7 +490,7 @@ export const mn = {
     currentPasswordWhy: 'Бүртгэлдээ энэ өөрчлөлтийг хийхийн тулд одоогийн нууц үгээ оруулна уу.',
     currentPasswordRequired: 'Одоогийн нууц үгээ оруулна уу.',
     currentPasswordWrong: 'Нууц үг буруу байна.',
-    currentPasswordNotSet: 'Энэ бүртгэлд нууц үг тохируулаагүй тул эндээс өөрчлөх боломжгүй. Дэмжлэгийн албатай холбогдоно уу.',
+    currentPasswordNotSet: 'Энэ бүртгэлд нууц үг тохируулаагүй тул эндээс өөрчлөх боломжгүй. Үйлчилгээний албатай холбогдоно уу.',
     verificationRequired: 'Нууц үгээ солихын өмнө утасны дугаараа дахин баталгаажуулна уу.',
     signInWith: 'Нэвтрэх хэлбэр',
     withPhone: 'Утасны дугаар',
@@ -535,7 +535,7 @@ export const mn = {
     languageMn: 'Монгол',
     languageEn: 'English',
     portalWelcome: 'UniQ Sport-д тавтай морил',
-    portalIntro: 'Тэмцээнүүдийг үзэж, тамирчдаа бүртгүүлж, оролцооны хураамжаа төлөөрэй — UniQ Sport аппын адилаар.',
+    portalIntro: 'Тэмцээний мэдээлэл авч, тамирчдаа бүртгүүлж, хураамжаа төлөөрэй — UniQ Sport апп-тай ижил.',
 
     // Web portal: sports, competitions, event detail
     sports: 'Спорт',
@@ -558,4 +558,10 @@ export const mn = {
     changeIdentity: 'Өөр дугаар, хаяг ашиглах',
     codeResent: 'Шинэ код илгээлээ.',
     sendNewCode: 'Шинэ код авах',
+
+    // Web portal: profile
+    change: 'Өөрчлөх',
+    accountNoEmail: 'Таны бүртгэлд и-мэйл хаяг алга',
+    signInDetails: 'Нэвтрэх мэдээлэл',
+    accountDeleted: 'Таны профайл устгагдлаа.',
 };

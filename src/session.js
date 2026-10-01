@@ -5,7 +5,8 @@ import { getStorage, STORAGE_KEYS } from './config.js';
  * ends somewhere other than a logout button — a token the server stops
  * accepting, say.
  *
- * Events: 'signed_in', 'signed_out', 'expired'. Only the api()-based token
+ * Events: 'signed_in', 'signed_out', 'expired' (the server refused the token),
+ * 'deleted' (the account was deleted). Only the api()-based token
  * flow (login, logout, a rejected token) emits; the mobile app's legacy calls
  * do not, and have no need to.
  */
@@ -13,7 +14,7 @@ import { getStorage, STORAGE_KEYS } from './config.js';
 const listeners = new Set();
 
 /**
- * @param {(event: 'signed_in'|'signed_out'|'expired') => void} listener
+ * @param {(event: 'signed_in'|'signed_out'|'expired'|'deleted') => void} listener
  * @returns {() => void} unsubscribe
  */
 export function subscribeSession(listener) {

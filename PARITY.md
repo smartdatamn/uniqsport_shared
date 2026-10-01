@@ -10,7 +10,7 @@ behind a flag defaulting off, and the **Notes** column says why.
 | Browse sports & competitions | 0.3.0 | shipped | chunk 3 | Portal splits upcoming/past in Ulaanbaatar time via `splitCompetitions`; mobile still uses device time |
 | Event detail (map, countdown) | 0.3.0 | shipped | chunk 3 (map: Leaflet/OSM) | `/comp/event/find/id` works only against production (`view_organization_search` missing elsewhere) |
 | Sign in / sign up / password reset (phone, email) | 0.4.0 | shipped (legacy `GET /check`, no token) | chunk 4 (token) | Same flow and refusals via `account.js`; mobile moves to it when it adopts tokens |
-| Profile & identity changes | 0.1.0 | shipped | — | |
+| Profile & identity changes | 0.5.0 | shipped (legacy GET, no token) | chunk 5 (POST, token) | Same verify-first rules; no avatar on either (no upload path exists) |
 | Athlete records | 0.1.0 | shipped | — | |
 | Individual registration | 0.1.0 | shipped | — | |
 | QPay payment (event) | 0.1.0 | shipped | — | |
