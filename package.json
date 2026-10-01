@@ -1,0 +1,22 @@
+{
+  "name": "@uniq/shared",
+  "version": "0.1.0",
+  "description": "Logic and strings shared by the UniQ Sport mobile app and web portal: endpoints, API client, auth, i18n, validation, payments, formatting.",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "node --test \"test/*.test.js\""
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
