@@ -520,4 +520,20 @@ export const en = {
     phoneNotVerifiedLogin: 'This phone number has not been confirmed yet. Sign in with your e-mail address, then confirm the number from Update info.',
     errorListUnavailable: 'This list could not be loaded. Please go back and try again.',
     errorEventUnavailable: 'This competition could not be loaded. Please try again shortly.',
+
+    // Web portal shell
+    pageNotFound: 'Page not found',
+    pageNotFoundBody: 'The page you were looking for does not exist or has moved.',
+    goHome: 'Back to the home page',
+    somethingWentWrong: 'Something went wrong',
+    reloadPage: 'Reload the page',
+    loading: 'Loading...',
+    loginRequired: 'Please sign in to view this page.',
+    webSignInSoon: 'Signing in on the web is coming soon. For now, please sign in with the UniQ Sport app.',
+    apiConnected: 'Connected to the server · {count} sports',
+    apiUnreachable: 'Could not reach the server',
+    languageMn: 'Монгол',
+    languageEn: 'English',
+    portalWelcome: 'Welcome to UniQ Sport',
+    portalIntro: 'Browse competitions, register your athletes and pay entry fees — the same as in the UniQ Sport app.',
 };

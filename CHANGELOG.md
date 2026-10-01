@@ -3,6 +3,15 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.2.0 — unreleased (Phase A, local only)
+
+### Added
+- 14 strings for the web portal's shell, in both languages: `pageNotFound`,
+  `pageNotFoundBody`, `goHome`, `somethingWentWrong`, `reloadPage`, `loading`,
+  `loginRequired`, `webSignInSoon`, `apiConnected`, `apiUnreachable`,
+  `languageMn`, `languageEn`, `portalWelcome`, `portalIntro`.
+  The Mongolian wording is a first draft — review it.
+
 ## 0.1.0 — unreleased (Phase A, local only)
 
 First extraction from `uniqsport`. No app consumes it yet.
