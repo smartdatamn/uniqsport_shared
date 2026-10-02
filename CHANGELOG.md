@@ -3,6 +3,17 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.7.0 — unreleased (Phase A, local only)
+
+### Added
+- `src/members.js`, on `api()`: `myAthletes`, `saveAthlete`, `deleteAthlete`
+  and `athleteProblems` (the app's athlete-form checks, as keys). The same
+  compware calls the app's registration screens make, so a record saved on
+  the web is one the app shows.
+- Error code `member_has_registrations`.
+- 36 strings for the portal's athletes, requests and club pages. Mongolian is
+  a first draft.
+
 ## 0.6.0 — unreleased (Phase A, local only)
 
 ### Added

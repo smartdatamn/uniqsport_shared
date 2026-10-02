@@ -51,6 +51,7 @@ export const ERROR_KEYS = Object.freeze({
     // Athlete access — who may act for an athlete record
     member_owned_by_other: 'memberOwnedByOther',
     member_not_found: 'memberNotFound',
+    member_has_registrations: 'memberHasRegistrations',
     already_yours: 'claimAlreadyYours',
     claim_pending: 'claimPending',
     claim_not_found: 'claimNotFound',

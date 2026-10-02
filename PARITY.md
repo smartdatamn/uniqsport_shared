@@ -11,7 +11,8 @@ behind a flag defaulting off, and the **Notes** column says why.
 | Event detail (map, countdown) | 0.3.0 | shipped | chunk 3 (map: Leaflet/OSM) | `/comp/event/find/id` works only against production (`view_organization_search` missing elsewhere) |
 | Sign in / sign up / password reset (phone, email) | 0.4.0 | shipped (legacy `GET /check`, no token) | chunk 4 (token) | Same flow and refusals via `account.js`; mobile moves to it when it adopts tokens |
 | Profile & identity changes | 0.5.0 | shipped (legacy GET, no token) | chunk 5 (POST, token) | Same verify-first rules; no avatar on either (no upload path exists) |
-| Athlete records | 0.1.0 | shipped | — | |
+| Athlete records | 0.7.0 | inside registration only | chunk 6 (list, add, edit, delete) | Web-first: the app has no athlete list outside registering |
+| Deciding claims, managing club coaches | 0.6.0 | — | chunk 6 | Web-first; mobile has only "request this record" |
 | Individual registration | 0.1.0 | shipped | — | |
 | QPay payment (event) | 0.1.0 | shipped | — | |
 | Membership purchase & renewal | 0.1.0 | shipped | — | |

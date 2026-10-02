@@ -68,6 +68,9 @@ export {
 
 export { subscribeSession } from './session.js';
 
+// Athletes I manage: list, save, delete, and the app's form rules.
+export { myAthletes, saveAthlete, deleteAthlete, athleteProblems } from './members.js';
+
 // Athlete access: claiming records, deciding claims, academy owners and coaches.
 export {
     claimMember, cancelClaim, myClaims, claimsToDecide, decideClaim,
