@@ -622,4 +622,20 @@ export const en = {
     clubAthletes: 'Club athletes',
     clubAthletesHint: 'The club\'s athletes who have not taken over their own record. You can register and pay for them.',
     noClubAthletes: 'No athletes.',
+
+    // Web portal: registration, competitors
+    division: 'Division',
+    club: 'Club',
+    clubName: 'Club name',
+    newAthlete: 'New athlete',
+    registerAthlete: 'Register an athlete',
+    myEntries: 'My entries for this competition',
+    noEntriesYet: 'You have not registered anyone for this competition yet.',
+    webPaymentSoon: 'Paying on the web is coming soon. For now, please pay in the UniQ Sport app.',
+    choose: 'Choose…',
+    allBelts: 'All belts',
+    allAges: 'All age groups',
+    noCompetitors: 'No competitors yet.',
+    viewCompetitors: 'View competitors',
+    fee: 'Fee',
 };

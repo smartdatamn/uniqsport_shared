@@ -622,4 +622,20 @@ export const mn = {
     clubAthletes: 'Клубын тамирчид',
     clubAthletesHint: 'Бүртгэлээ өөртөө шилжүүлж аваагүй клубын тамирчид. Та тэднийг бүртгэж, төлбөрийг нь төлөх боломжтой.',
     noClubAthletes: 'Тамирчин алга.',
+
+    // Web portal: registration, competitors
+    division: 'Ангилал',
+    club: 'Клуб',
+    clubName: 'Клубын нэр',
+    newAthlete: 'Шинэ тамирчин',
+    registerAthlete: 'Тамирчин бүртгүүлэх',
+    myEntries: 'Энэ тэмцээнд бүртгүүлсэн тамирчид',
+    noEntriesYet: 'Та энэ тэмцээнд одоогоор хэнийг ч бүртгүүлээгүй байна.',
+    webPaymentSoon: 'Вэбээр төлбөр төлөх боломж удахгүй нэмэгдэнэ. Одоогоор UniQ Sport аппаар төлнө үү.',
+    choose: 'Сонгох…',
+    allBelts: 'Бүх бүс',
+    allAges: 'Бүх насны ангилал',
+    noCompetitors: 'Оролцогч алга.',
+    viewCompetitors: 'Оролцогчдыг харах',
+    fee: 'Хураамж',
 };

@@ -68,6 +68,13 @@ export {
 
 export { subscribeSession } from './session.js';
 
+// Individual registration: the division cascade, labels, the form's checks.
+export {
+    eventEntries, entryOptions, entryWeights, eventAcademies, myEventRegistrations, myAthletesNotInEvent,
+    registerForEvent, deleteRegistration, registrationProblems, entryFee, entryLabel, ageLabel, weightLabel,
+    REG_STATUS_KEYS, eventEntriesWithCounts, competitorGroups,
+} from './registration.js';
+
 // Athletes I manage: list, save, delete, and the app's form rules.
 export { myAthletes, saveAthlete, deleteAthlete, athleteProblems } from './members.js';
 

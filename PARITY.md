@@ -13,10 +13,10 @@ behind a flag defaulting off, and the **Notes** column says why.
 | Profile & identity changes | 0.5.0 | shipped (legacy GET, no token) | chunk 5 (POST, token) | Same verify-first rules; no avatar on either (no upload path exists) |
 | Athlete records | 0.7.0 | inside registration only | chunk 6 (list, add, edit, delete) | Web-first: the app has no athlete list outside registering |
 | Deciding claims, managing club coaches | 0.6.0 | — | chunk 6 | Web-first; mobile has only "request this record" |
-| Individual registration | 0.1.0 | shipped | — | |
+| Individual registration | 0.8.0 | shipped | chunk 7 (register, change, delete) | Same request body as the app; paying is chunk 8 |
 | QPay payment (event) | 0.1.0 | shipped | — | |
 | Membership purchase & renewal | 0.1.0 | shipped | — | |
-| Competitor list & bracket | 0.1.0 | shipped | — | |
+| Competitor list & bracket | 0.8.0 | shipped | chunk 7 (list, read-only) | Brackets: chunk 11 |
 | Notifications (list, count) | 0.1.0 | shipped | — | Web Push not planned for v1 |
 | Teams | 0.1.0 | shipped | **deferred** | Team model being redesigned for squad and small-group sports; team payment on hold |
 | HiPay saved cards | 0.1.0 | shipped | **blocked** | Return page is React-Native-only; needs a compware change and possibly HiPay-side config |

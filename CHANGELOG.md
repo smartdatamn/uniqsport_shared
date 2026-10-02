@@ -3,6 +3,26 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.8.0 — unreleased (Phase A, local only)
+
+### Added
+- `src/registration.js` — individual registration, the mobile
+  EventRegistrationScreen written down: the division cascade (`eventEntries`,
+  `entryOptions`, `entryWeights`, `eventAcademies`), `myEventRegistrations`,
+  `myAthletesNotInEvent`, `registerForEvent` (the app's request body, field for
+  field), `deleteRegistration`, `registrationProblems` (the screen's checks in
+  its order), labels (`entryLabel`, `ageLabel`, `weightLabel`, `entryFee`),
+  `REG_STATUS_KEYS`, and the competitor list (`eventEntriesWithCounts`,
+  `competitorGroups`).
+- 14 strings for the portal's registration and competitor pages. Mongolian is a
+  first draft.
+
+### Notes
+- Age groups are printed as typed: organisers often enter BIRTH YEARS
+  (2008-1980), and the app shows them that way.
+- `competitorGroups` always sends `belt_id` / `age_id` (empty when unchosen):
+  compware read `belt_id` unguarded.
+
 ## 0.7.0 — unreleased (Phase A, local only)
 
 ### Added

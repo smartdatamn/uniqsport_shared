@@ -84,6 +84,7 @@ have become shims, at which point this package is the source of truth.
 | `src/profile.js` | profile editing on `api()`: names, phone / address changes, delete |
 | `src/athletes.js` | athlete access on `api()`: claims, academy owners and coaches (token-only) |
 | `src/members.js` | athletes I manage on `api()`: list, save, delete, `athleteProblems` |
+| `src/registration.js` | individual registration: division cascade, labels, `registrationProblems`, competitor list |
 | `src/session.js` | `subscribeSession()` — signed_in / signed_out / expired / deleted events |
 | `src/i18n.js`, `src/lang/{mn,en}.js` | `tr()`, `getItemField()`, the string tables |
 | `src/errors.js` | the single failure-code → translation-key map |
