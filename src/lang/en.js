@@ -638,4 +638,14 @@ export const en = {
     noCompetitors: 'No competitors yet.',
     viewCompetitors: 'View competitors',
     fee: 'Fee',
+
+    // Web portal: payment
+    entryFeeMissing: 'No entry fee is set for this division yet. Please contact the organiser.',
+    entryFee: 'Entry fee',
+    waitingForPayment: 'Waiting for the payment…',
+    paymentReceived: 'Payment received. The registration is confirmed.',
+    openPaymentLink: 'Open the QPay payment page',
+    paymentTimedOut: 'No payment has arrived yet. If you have paid, check again.',
+    checkAgain: 'Check again',
+    payEntry: 'Pay the entry fee',
 };

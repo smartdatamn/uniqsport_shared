@@ -79,6 +79,7 @@ export const ERROR_KEYS = Object.freeze({
     event_date_missing: 'errorEventDateMissing',
     membership_loop: 'errorMembershipLoop',
     registration_not_found: 'errorRegistrationNotFound',
+    entry_fee_missing: 'entryFeeMissing',
     membership_active: 'membershipActive',
 });
 

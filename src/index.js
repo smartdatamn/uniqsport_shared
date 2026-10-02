@@ -42,6 +42,7 @@ export {
 export {
     parseQPay, qrImageSrc, toAmount, invoiceKind, pollUntilPaid,
     POLL_INTERVAL_EVENT_MS, POLL_INTERVAL_MEMBERSHIP_MS,
+    requestEventInvoice, eventInvoicePaid, membershipInvoicePaid,
 } from './payments.js';
 
 export { readEventConfig, registrationWindow, canPay, canEdit, EVENT_TYPE } from './eventConfig.js';

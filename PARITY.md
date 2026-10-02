@@ -14,7 +14,7 @@ behind a flag defaulting off, and the **Notes** column says why.
 | Athlete records | 0.7.0 | inside registration only | chunk 6 (list, add, edit, delete) | Web-first: the app has no athlete list outside registering |
 | Deciding claims, managing club coaches | 0.6.0 | — | chunk 6 | Web-first; mobile has only "request this record" |
 | Individual registration | 0.8.0 | shipped | chunk 7 (register, change, delete) | Same request body as the app; paying is chunk 8 |
-| QPay payment (event) | 0.1.0 | shipped | — | |
+| QPay payment (event) | 0.9.0 | shipped | chunk 8 (QR, payment link, poll; membership first when required) | The app still sends a price; compware ignores it |
 | Membership purchase & renewal | 0.1.0 | shipped | — | |
 | Competitor list & bracket | 0.8.0 | shipped | chunk 7 (list, read-only) | Brackets: chunk 11 |
 | Notifications (list, count) | 0.1.0 | shipped | — | Web Push not planned for v1 |

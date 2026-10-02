@@ -3,6 +3,15 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.9.0 — unreleased (Phase A, local only)
+
+### Added
+- `payments.js`, on `api()`: `requestEventInvoice` (with `kind` and the
+  parsed `qpay`; sends no price — compware charges the division's fee),
+  `eventInvoicePaid`, `membershipInvoicePaid`.
+- Error code `entry_fee_missing`.
+- 8 strings for the portal's payment page. Mongolian is a first draft.
+
 ## 0.8.0 — unreleased (Phase A, local only)
 
 ### Added

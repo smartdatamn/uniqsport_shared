@@ -638,4 +638,14 @@ export const mn = {
     noCompetitors: 'Оролцогч алга.',
     viewCompetitors: 'Оролцогчдыг харах',
     fee: 'Хураамж',
+
+    // Web portal: payment
+    entryFeeMissing: 'Энэ ангилалд оролцооны хураамж тохируулаагүй байна. Зохион байгуулагчтай холбогдоно уу.',
+    entryFee: 'Оролцооны хураамж',
+    waitingForPayment: 'Төлбөр хүлээж байна…',
+    paymentReceived: 'Төлбөр төлөгдлөө. Бүртгэл баталгаажлаа.',
+    openPaymentLink: 'QPay төлбөрийн хуудсыг нээх',
+    paymentTimedOut: 'Төлбөр хараахан ирээгүй байна. Төлсөн бол дахин шалгана уу.',
+    checkAgain: 'Дахин шалгах',
+    payEntry: 'Оролцооны хураамж төлөх',
 };

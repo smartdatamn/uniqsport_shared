@@ -1,3 +1,4 @@
+import { api } from './client.js';
 import { errorMessage as sharedErrorMessage } from './errors.js';
 
 /**
@@ -120,4 +121,39 @@ export function pollUntilPaid(check, options = {}) {
 
         timer = setTimeout(tick, intervalMs);
     });
+}
+
+// --- On api(), for the portal ------------------------------------------------
+
+/**
+ * Asks compware for the invoice to pay a registration. Answers the api()
+ * envelope plus `kind` (invoiceKind) and `qpay` (the parsed QPay answer, for
+ * the QR and the payment link).
+ *
+ * The price is NOT sent: compware charges the division's fee itself (it used
+ * to take the client's ?price=, which made every entry 1₮ to anyone who
+ * asked). For a competition requiring membership the answer may be a
+ * membership invoice or a membership_choice; pay that, then ask again.
+ *
+ * @param {number} regId
+ * @param {{membershipTypeId?: number|null}} [options]
+ */
+export async function requestEventInvoice(regId, { membershipTypeId = null } = {}) {
+    const envelope = await api('URL_COMP_EVENT_PAYMENT_CREATE_QPAY_INVOICE', {
+        query: { reg_id: regId, membership_type_id: membershipTypeId ?? undefined },
+    });
+
+    return { ...envelope, kind: invoiceKind(envelope.raw), qpay: envelope.ok ? parseQPay(envelope.data) : null };
+}
+
+/** Whether a registration's invoice has been paid (compware asks QPay). */
+export async function eventInvoicePaid(regId) {
+    const envelope = await api('URL_COMP_EVENT_PAYMENT_CHECK_QPAY_INVOICE', { query: { reg_id: regId } });
+    return envelope.raw?.status === true;
+}
+
+/** Whether a membership invoice has been paid (compware asks QPay). */
+export async function membershipInvoicePaid(paymentId) {
+    const envelope = await api('URL_COMP_EVENT_PAYMENT_CHECK_QPAY_MEMBERSHIP_INVOICE', { query: { payment_id: paymentId } });
+    return envelope.raw?.status === true;
 }
