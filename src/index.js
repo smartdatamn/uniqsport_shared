@@ -68,6 +68,12 @@ export {
 
 export { subscribeSession } from './session.js';
 
+// Athlete access: claiming records, deciding claims, academy owners and coaches.
+export {
+    claimMember, cancelClaim, myClaims, claimsToDecide, decideClaim,
+    myAcademyRoles, academyCoaches, grantCoach, revokeCoach, academyAthletes, CLAIM_STATUS_KEYS,
+} from './athletes.js';
+
 // Profile editing on api(): names, phone / address changes, delete.
 export {
     reloadProfile, updateProfile, startPhoneChange, confirmPhoneChange,

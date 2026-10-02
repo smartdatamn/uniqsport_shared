@@ -82,6 +82,7 @@ have become shims, at which point this package is the source of truth.
 | `src/auth.js` | account and identity calls (from mobile `UserHelper`) — raw responses, legacy |
 | `src/account.js` | token sign-in (`login`/`logout`/`fetchMe`) and the signup / reset flows, on `api()` |
 | `src/profile.js` | profile editing on `api()`: names, phone / address changes, delete |
+| `src/athletes.js` | athlete access on `api()`: claims, academy owners and coaches (token-only) |
 | `src/session.js` | `subscribeSession()` — signed_in / signed_out / expired / deleted events |
 | `src/i18n.js`, `src/lang/{mn,en}.js` | `tr()`, `getItemField()`, the string tables |
 | `src/errors.js` | the single failure-code → translation-key map |

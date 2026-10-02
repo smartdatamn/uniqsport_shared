@@ -3,6 +3,28 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.6.0 — unreleased (Phase A, local only)
+
+### Added
+- `src/athletes.js`, on `api()`, POST and token-only (compware
+  docs/design/athlete-access.md): `claimMember`, `cancelClaim`, `myClaims`,
+  `claimsToDecide`, `decideClaim`, `myAcademyRoles`, `academyCoaches`,
+  `grantCoach`, `revokeCoach`, `academyAthletes`, `CLAIM_STATUS_KEYS`. With no
+  token stored each answers `auth_required` without a request.
+- Ten endpoints `URL_COMP_ACADEMY_*` / `URL_COMP_MEMBER_CLAIM*`.
+- Error codes `member_owned_by_other`, `member_not_found`, `already_yours`,
+  `claim_pending`, `claim_not_found`, `not_academy_owner`, `not_academy_staff`,
+  `coach_account_not_found`, `coach_member_not_found`, `already_coach`,
+  `role_not_found`.
+- 18 strings: one per code above, plus `claimRecord`, `claimSent`,
+  `claimSignInAgain` and the four `claimStatus*`. Mongolian is a first draft.
+
+### Changed
+- `regNumberOwnedByUser` no longer shows a phone number — compware stopped
+  sending it (anyone could harvest numbers by national ID). It now offers a
+  request instead. Shipped apps still pass `{phone}`; the unused parameter is
+  ignored. **Visible to every app user once the OTA ships.**
+
 ## 0.5.0 — unreleased (Phase A, local only)
 
 ### Added

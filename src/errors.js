@@ -48,6 +48,19 @@ export const ERROR_KEYS = Object.freeze({
     not_registered: 'alertNotRegistered',
     sms_failed: 'alertMsgError',
 
+    // Athlete access — who may act for an athlete record
+    member_owned_by_other: 'memberOwnedByOther',
+    member_not_found: 'memberNotFound',
+    already_yours: 'claimAlreadyYours',
+    claim_pending: 'claimPending',
+    claim_not_found: 'claimNotFound',
+    not_academy_owner: 'notAcademyOwner',
+    not_academy_staff: 'notAcademyStaff',
+    coach_account_not_found: 'coachAccountNotFound',
+    coach_member_not_found: 'coachMemberNotFound',
+    already_coach: 'alreadyCoach',
+    role_not_found: 'roleNotFound',
+
     // Codes
     code_invalid: 'codeWrong',
     code_expired: 'codeExpired',

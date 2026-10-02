@@ -35,6 +35,19 @@ export const ENDPOINT_PATHS = Object.freeze({
     URL_COMP_EVENT_MEMBER_REGISTRATION: '/comp/event/members/registration',
     URL_COMP_EVENT_MEMBER_DELETE: '/comp/event/members/delete',
 
+    // Athlete access (compware docs/design/athlete-access.md). POST and
+    // token-only: these answer 401 auth_required without a bearer token.
+    URL_COMP_ACADEMY_ROLES_MINE: '/comp/academy/roles/mine',
+    URL_COMP_ACADEMY_COACHES: '/comp/academy/coaches',
+    URL_COMP_ACADEMY_COACH_GRANT: '/comp/academy/coach/grant',
+    URL_COMP_ACADEMY_COACH_REVOKE: '/comp/academy/coach/revoke',
+    URL_COMP_ACADEMY_ATHLETES: '/comp/academy/athletes',
+    URL_COMP_MEMBER_CLAIM: '/comp/member/claim',
+    URL_COMP_MEMBER_CLAIM_CANCEL: '/comp/member/claim/cancel',
+    URL_COMP_MEMBER_CLAIMS_MINE: '/comp/member/claims/mine',
+    URL_COMP_MEMBER_CLAIMS_PENDING: '/comp/member/claims/pending',
+    URL_COMP_MEMBER_CLAIM_DECIDE: '/comp/member/claim/decide',
+
     // Payment — QPay. create/invoice may answer with a MEMBERSHIP invoice
     // instead of the event one; see payments.js invoiceKind().
     URL_COMP_EVENT_PAYMENT_CREATE_QPAY_INVOICE: '/core/payment/qpay/create/invoice',
