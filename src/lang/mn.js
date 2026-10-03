@@ -741,4 +741,10 @@ export const mn = {
     notificationsEmpty: 'Мэдэгдэл алга байна.',
     notificationsNew: 'Шинэ',
     notificationsUnseen: '{count} шинэ мэдэгдэл',
+
+    // Static pages (portal)
+    helpTitle: 'Тусламж',
+    privacyTitle: 'Нууцлалын бодлого',
+    privacySource: 'Смарт Дата ХХК-ийн uniq.mn дээр нийтэлсэн нууцлалын бодлого.',
+    privacyOpenOriginal: 'Эх хувийг нээх',
 };

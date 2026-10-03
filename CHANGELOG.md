@@ -3,6 +3,12 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.16.0 — unreleased (Phase A, local only)
+
+### Added
+- `contact.js`: `SUPPORT_PHONE`, `SUPPORT_PHONE_TEL`, `PRIVACY_POLICY_URL` —
+  the support line was hardcoded in the app's HelpScreen. 4 strings.
+
 ## 0.15.0 — unreleased (Phase A, local only)
 
 ### Added

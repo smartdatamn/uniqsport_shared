@@ -63,6 +63,8 @@ export {
 
 export { myNotifications, markNotificationsSeen } from './notifications.js';
 
+export { SUPPORT_PHONE, SUPPORT_PHONE_TEL, PRIVACY_POLICY_URL } from './contact.js';
+
 export { readEventConfig, registrationWindow, canPay, canEdit, EVENT_TYPE } from './eventConfig.js';
 
 export {

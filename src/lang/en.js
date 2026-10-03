@@ -741,4 +741,10 @@ export const en = {
     notificationsEmpty: 'No notifications yet.',
     notificationsNew: 'New',
     notificationsUnseen: '{count} new notifications',
+
+    // Static pages (portal)
+    helpTitle: 'Help',
+    privacyTitle: 'Privacy policy',
+    privacySource: 'The policy of Smart Data LLC, as published at uniq.mn. It is in Mongolian.',
+    privacyOpenOriginal: 'Open the original',
 };
