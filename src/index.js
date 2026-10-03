@@ -45,6 +45,11 @@ export {
     requestEventInvoice, eventInvoicePaid, membershipInvoicePaid,
 } from './payments.js';
 
+export {
+    academyEventSheet, registerAthletes, rowErrors, divisionsFor, alreadyEntered,
+    suggestAgeGroup, rowNeeds, ROW_ERROR_KEYS, MISSING_KEYS, MAX_BULK_ROWS,
+} from './bulkEntry.js';
+
 export { readEventConfig, registrationWindow, canPay, canEdit, EVENT_TYPE } from './eventConfig.js';
 
 export {

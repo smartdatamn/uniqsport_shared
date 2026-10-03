@@ -42,6 +42,8 @@ export const ENDPOINT_PATHS = Object.freeze({
     URL_COMP_ACADEMY_COACH_GRANT: '/comp/academy/coach/grant',
     URL_COMP_ACADEMY_COACH_REVOKE: '/comp/academy/coach/revoke',
     URL_COMP_ACADEMY_ATHLETES: '/comp/academy/athletes',
+    URL_COMP_ACADEMY_EVENT_SHEET: '/comp/academy/event/sheet',
+    URL_COMP_ACADEMY_EVENT_REGISTER: '/comp/academy/event/register',
     URL_COMP_MEMBER_CLAIM: '/comp/member/claim',
     URL_COMP_MEMBER_CLAIM_CANCEL: '/comp/member/claim/cancel',
     URL_COMP_MEMBER_CLAIMS_MINE: '/comp/member/claims/mine',

@@ -3,6 +3,19 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.10.0 — unreleased (Phase A, local only)
+
+### Added
+- `bulkEntry.js` — coach bulk entry: `academyEventSheet`, `registerAthletes`
+  (all rows or none), `rowErrors` (a refused batch's reason per row), and the
+  pure helpers `divisionsFor`, `alreadyEntered`, `suggestAgeGroup` (birth
+  years or ages, either order; null unless exactly one fits) and `rowNeeds`
+  (the server's row rules). `ROW_ERROR_KEYS`, `MISSING_KEYS`, `MAX_BULK_ROWS`.
+- Endpoints `URL_COMP_ACADEMY_EVENT_SHEET`, `URL_COMP_ACADEMY_EVENT_REGISTER`.
+- Error codes `event_not_found`, `team_event`, `event_needs_attributes`,
+  `registration_closed`, `no_rows`, `too_many_rows`, `rows_invalid`,
+  `already_entered`; 30 strings. Mongolian is a first draft.
+
 ## 0.9.0 — unreleased (Phase A, local only)
 
 ### Added

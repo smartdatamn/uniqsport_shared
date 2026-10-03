@@ -62,6 +62,16 @@ export const ERROR_KEYS = Object.freeze({
     already_coach: 'alreadyCoach',
     role_not_found: 'roleNotFound',
 
+    // Coach bulk entry (a refused row's own code: bulkEntry.ROW_ERROR_KEYS)
+    event_not_found: 'bulkEventNotFound',
+    team_event: 'bulkTeamEvent',
+    event_needs_attributes: 'bulkNeedsAttributes',
+    registration_closed: 'bulkClosed',
+    no_rows: 'bulkNoRows',
+    too_many_rows: 'bulkTooManyRows',
+    rows_invalid: 'bulkRowsInvalid',
+    already_entered: 'bulkRowAlreadyEntered',
+
     // Codes
     code_invalid: 'codeWrong',
     code_expired: 'codeExpired',

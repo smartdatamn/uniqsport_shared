@@ -21,6 +21,6 @@ behind a flag defaulting off, and the **Notes** column says why.
 | Teams | 0.1.0 | shipped | **deferred** | Team model being redesigned for squad and small-group sports; team payment on hold |
 | HiPay saved cards | 0.1.0 | shipped | **blocked** | Return page is React-Native-only; needs a compware change and possibly HiPay-side config |
 | Claim a record someone else created | 0.6.0 | built (button on both national-ID screens; needs a token — next sign-in) | — | compware enforces who may act for an athlete (docs/design/athlete-access.md) |
-| Coach role & multi-athlete registration | 0.6.0 (API calls) | — | — | Backend and compadmin done; portal coach screens next, web-first |
+| Coach role & multi-athlete registration | 0.10.0 | — | coach bulk entry (`/events/:id/club/:academyId`) | Web-first by design; mobile gets a reduced "my club's athletes" view later, not bulk entry |
 | Bulk payment | — | — | — | Planned; basket with typed lines |
 | Refund requests | — | — | — | Planned mobile-first; admin half exists in compadmin |
