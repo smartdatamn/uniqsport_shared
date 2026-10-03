@@ -3,6 +3,12 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.13.0 — unreleased (Phase A, local only)
+
+### Added
+- `payments.js`: `requestMembershipInvoice(memberId, sportId, {membershipTypeId})`
+  — a membership on its own, as the app's MembershipScreen buys it.
+
 ## 0.12.0 — unreleased (Phase A, local only)
 
 ### Added

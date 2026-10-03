@@ -152,6 +152,24 @@ export async function eventInvoicePaid(regId) {
     return envelope.raw?.status === true;
 }
 
+/**
+ * A membership on its own, not through a competition (the app's
+ * MembershipScreen). compware sells the earliest year the athlete does not
+ * hold in full. Answers the envelope plus `kind` and `qpay`, as
+ * requestEventInvoice; already covered is code 'membership_active' with the
+ * end date on `raw.period_end`.
+ *
+ * @param {number} memberId
+ * @param {number} sportId
+ * @param {{membershipTypeId?: number|null}} [options]
+ */
+export async function requestMembershipInvoice(memberId, sportId, { membershipTypeId = null } = {}) {
+    const envelope = await api('URL_COMP_EVENT_PAYMENT_CREATE_QPAY_MEMBERSHIP_INVOICE', {
+        query: { member_id: memberId, sport_id: sportId, membership_type_id: membershipTypeId ?? undefined },
+    });
+    return { ...envelope, kind: invoiceKind(envelope.raw), qpay: envelope.ok ? parseQPay(envelope.data) : null };
+}
+
 /** Whether a membership invoice has been paid (compware asks QPay). */
 export async function membershipInvoicePaid(paymentId) {
     const envelope = await api('URL_COMP_EVENT_PAYMENT_CHECK_QPAY_MEMBERSHIP_INVOICE', { query: { payment_id: paymentId } });

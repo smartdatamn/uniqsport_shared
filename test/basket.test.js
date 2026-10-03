@@ -59,3 +59,12 @@ test('every basket code and line reason has a message', () => {
         assert.notEqual(tr(key), key, key);
     }
 });
+
+test('a standalone membership invoice sends the athlete and the sport, and reads "already covered"', async () => {
+    const { calls } = setup({ '/core/payment/qpay/create/membership/invoice': () => ({ status: false, code: 'membership_active', data: {}, period_end: '2026-12-31' }) });
+    const res = await payments.requestMembershipInvoice(41, 1, { membershipTypeId: 3 });
+    const url = new URL(calls[0].url);
+    assert.deepEqual([url.searchParams.get('member_id'), url.searchParams.get('sport_id'), url.searchParams.get('membership_type_id')], ['41', '1', '3']);
+    assert.equal(res.code, 'membership_active');
+    assert.equal(res.raw.period_end, '2026-12-31');
+});
