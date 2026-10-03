@@ -72,6 +72,15 @@ export const ERROR_KEYS = Object.freeze({
     rows_invalid: 'bulkRowsInvalid',
     already_entered: 'bulkRowAlreadyEntered',
 
+    // Bulk payment (a refused line's own code: payments.BASKET_LINE_KEYS)
+    no_lines: 'basketNoLines',
+    too_many_lines: 'basketTooManyLines',
+    payment_closed: 'basketPaymentClosed',
+    lines_invalid: 'basketLinesInvalid',
+    invoice_failed: 'basketInvoiceFailed',
+    basket_not_found: 'basketNotFound',
+    in_basket: 'basketInBasket',
+
     // Codes
     code_invalid: 'codeWrong',
     code_expired: 'codeExpired',

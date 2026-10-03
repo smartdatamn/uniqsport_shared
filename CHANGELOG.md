@@ -3,6 +3,17 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.11.0 — unreleased (Phase A, local only)
+
+### Added
+- Bulk payment in `payments.js`: `requestBasketInvoice(eventId, regIds)` (one
+  QPay invoice for several registrations; no price sent), `basketPaid`,
+  `basketLineErrors`, `BASKET_LINE_KEYS`, `MAX_BASKET_LINES`.
+- Endpoints `URL_PAYMENT_BASKET_CREATE`, `URL_PAYMENT_BASKET_CHECK`.
+- Error codes `no_lines`, `too_many_lines`, `payment_closed`, `lines_invalid`,
+  `invoice_failed`, `basket_not_found`, `in_basket`; 17 strings. Mongolian is a
+  first draft.
+
 ## 0.10.0 — unreleased (Phase A, local only)
 
 ### Added

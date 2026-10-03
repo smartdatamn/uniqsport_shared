@@ -680,4 +680,23 @@ export const en = {
     bulkRowWeight: 'Choose a weight of this age group.',
     bulkRowAlreadyEntered: 'Already entered in this division.',
     bulkRowDuplicate: 'The same athlete and division appear twice.',
+
+    // Web portal: bulk payment
+    basketPayTitle: 'Pay several entries',
+    basketPayAll: 'Pay {count} unpaid entries at once',
+    basketPaySelected: 'Pay for {count} at once',
+    basketIntro: 'One QPay payment for all of these entries. Each is confirmed as soon as it is paid.',
+    basketTotal: 'Total',
+    basketPaid: 'Payment received. All {count} entries are confirmed.',
+    basketNoLines: 'Choose at least one entry to pay.',
+    basketTooManyLines: 'Pay for at most 100 entries at a time.',
+    basketPaymentClosed: 'The payment period for this competition is over.',
+    basketLinesInvalid: 'Some of these entries cannot be paid together. No invoice was made.',
+    basketInvoiceFailed: 'QPay could not create the invoice. Please try again.',
+    basketNotFound: 'This invoice was not found.',
+    basketInBasket: 'This entry is already on another invoice awaiting payment.',
+    basketLineNotFound: 'Entry not found in this competition.',
+    basketLinePaid: 'Already paid.',
+    basketLineNotPayable: 'This entry cannot be paid (cancelled or closed).',
+    basketLineMembership: 'Needs a membership first: pay this entry on its own.',
 };

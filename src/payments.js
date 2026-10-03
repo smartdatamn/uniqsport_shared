@@ -1,4 +1,4 @@
-import { api } from './client.js';
+import { api, getToken } from './client.js';
 import { errorMessage as sharedErrorMessage } from './errors.js';
 
 /**
@@ -157,3 +157,61 @@ export async function membershipInvoicePaid(paymentId) {
     const envelope = await api('URL_COMP_EVENT_PAYMENT_CHECK_QPAY_MEMBERSHIP_INVOICE', { query: { payment_id: paymentId } });
     return envelope.raw?.status === true;
 }
+
+// --- Bulk payment (a basket): one invoice for several registrations -------------
+
+/** Most registrations one basket takes. */
+export const MAX_BASKET_LINES = 100;
+
+/**
+ * One QPay invoice for several registrations of one event. POST, token-only;
+ * answers auth_required without a request when no token is stored.
+ *
+ * compware charges each division's fee and refuses the whole basket when any
+ * registration cannot be paid this way: code 'lines_invalid' with
+ * `lines: [{reg_id, code}]` on the raw answer (basketLineErrors reads it). An
+ * athlete who still needs membership is one of those ('membership_required'):
+ * pay them on their own, which takes the membership first.
+ *
+ * On success `data` is the basket - {id, amount, status, response_message,
+ * lines:[{reg_id, member_id, amount, firstname, lastname, register_number}]} -
+ * and `qpay` the parsed invoice, as requestEventInvoice gives.
+ *
+ * @param {number} eventId
+ * @param {number[]} regIds
+ */
+export async function requestBasketInvoice(eventId, regIds) {
+    if (!(await getToken())) {
+        return { ok: false, data: null, code: 'auth_required', message: null, raw: null, httpStatus: null, qpay: null };
+    }
+    const envelope = await api('URL_PAYMENT_BASKET_CREATE', { method: 'POST', body: { event_id: eventId, reg_ids: regIds } });
+    return { ...envelope, qpay: envelope.ok ? parseQPay(envelope.data) : null };
+}
+
+/** Whether a basket has been paid (compware asks QPay, and settles it once). */
+export async function basketPaid(basketId) {
+    if (!(await getToken())) return false;
+    const envelope = await api('URL_PAYMENT_BASKET_CHECK', { method: 'POST', body: { basket_id: basketId } });
+    return envelope.ok && envelope.data?.paid === true;
+}
+
+/** A refused basket's reasons: reg id -> code. */
+export function basketLineErrors(envelope) {
+    const out = new Map();
+    const lines = envelope?.raw?.lines;
+    if (Array.isArray(lines)) {
+        for (const l of lines) out.set(Number(l.reg_id), String(l.code));
+    }
+    return out;
+}
+
+/** A refused line's code -> translation key. */
+export const BASKET_LINE_KEYS = Object.freeze({
+    registration_not_found: 'basketLineNotFound',
+    member_not_allowed: 'bulkRowNotAllowed',
+    already_paid: 'basketLinePaid',
+    registration_not_payable: 'basketLineNotPayable',
+    entry_fee_missing: 'entryFeeMissing',
+    membership_required: 'basketLineMembership',
+    event_date_missing: 'errorEventDateMissing',
+});

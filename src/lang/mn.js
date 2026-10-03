@@ -680,4 +680,23 @@ export const mn = {
     bulkRowWeight: 'Энэ насны ангиллын жин сонгоно уу.',
     bulkRowAlreadyEntered: 'Энэ ангилалд аль хэдийн бүртгэгдсэн.',
     bulkRowDuplicate: 'Ижил тамирчин, ангилал хоёр удаа орсон байна.',
+
+    // Web portal: bulk payment
+    basketPayTitle: 'Олон бүртгэлийн төлбөр',
+    basketPayAll: 'Төлөгдөөгүй {count} бүртгэлийг нэг дор төлөх',
+    basketPaySelected: '{count} бүртгэлийг нэг дор төлөх',
+    basketIntro: 'Эдгээр бүртгэлийн төлбөрийг нэг QPay төлбөрөөр төлнө. Төлөгдмөгц бүгд баталгаажна.',
+    basketTotal: 'Нийт',
+    basketPaid: 'Төлбөр төлөгдлөө. {count} бүртгэл баталгаажлаа.',
+    basketNoLines: 'Төлөх бүртгэлээ сонгоно уу.',
+    basketTooManyLines: 'Нэг удаад 100-аас ихгүй бүртгэлийн төлбөр төлнө үү.',
+    basketPaymentClosed: 'Энэ тэмцээний төлбөр төлөх хугацаа дууссан байна.',
+    basketLinesInvalid: 'Зарим бүртгэлийн төлбөрийг хамт төлөх боломжгүй. Нэхэмжлэх үүсгээгүй.',
+    basketInvoiceFailed: 'QPay нэхэмжлэх үүсгэж чадсангүй. Дахин оролдоно уу.',
+    basketNotFound: 'Нэхэмжлэх олдсонгүй.',
+    basketInBasket: 'Энэ бүртгэл төлөгдөөгүй өөр нэхэмжлэхэд орсон байна.',
+    basketLineNotFound: 'Энэ тэмцээнд ийм бүртгэл алга.',
+    basketLinePaid: 'Төлбөр нь төлөгдсөн.',
+    basketLineNotPayable: 'Энэ бүртгэлийн төлбөрийг төлөх боломжгүй (цуцлагдсан эсвэл хаагдсан).',
+    basketLineMembership: 'Эхлээд гишүүнчлэл шаардлагатай: энэ бүртгэлийг тусад нь төлнө үү.',
 };

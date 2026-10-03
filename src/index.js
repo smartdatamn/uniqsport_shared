@@ -43,6 +43,7 @@ export {
     parseQPay, qrImageSrc, toAmount, invoiceKind, pollUntilPaid,
     POLL_INTERVAL_EVENT_MS, POLL_INTERVAL_MEMBERSHIP_MS,
     requestEventInvoice, eventInvoicePaid, membershipInvoicePaid,
+    requestBasketInvoice, basketPaid, basketLineErrors, BASKET_LINE_KEYS, MAX_BASKET_LINES,
 } from './payments.js';
 
 export {
