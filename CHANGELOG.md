@@ -3,6 +3,13 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.15.0 — unreleased (Phase A, local only)
+
+### Added
+- `notifications.js`: `myNotifications` (items with `is_new`, `unseen`) and
+  `markNotificationsSeen`, token-only. Endpoints `URL_USER_NOTIFICATIONS_MINE`,
+  `URL_USER_NOTIFICATIONS_SEEN`; 4 strings.
+
 ## 0.14.0 — unreleased (Phase A, local only)
 
 ### Added

@@ -106,6 +106,8 @@ export const ENDPOINT_PATHS = Object.freeze({
     URL_USER_PASSWORD_RESET: '/core/user/password/reset',
     URL_USER_NOTIFICATION: '/core/user/notification',
     URL_USER_NOTIFICATION_COUNT: '/core/user/notification/count',
+    URL_USER_NOTIFICATIONS_MINE: '/core/user/notifications/mine',
+    URL_USER_NOTIFICATIONS_SEEN: '/core/user/notifications/seen',
     URL_USER_MESSAGE_SENT: '/core/user/message/send',
     URL_USER_VERIFY_CODE: '/core/user/verified/code',
     URL_USER_DELETE: '/core/user/delete',

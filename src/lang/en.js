@@ -735,4 +735,10 @@ export const en = {
     bracketWins: 'Wins',
     bracketMatches: 'Matches',
     bracketMat: 'Mat {mat}',
+
+    // Notifications (portal)
+    notificationsTitle: 'Notifications',
+    notificationsEmpty: 'No notifications yet.',
+    notificationsNew: 'New',
+    notificationsUnseen: '{count} new notifications',
 };

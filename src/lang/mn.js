@@ -735,4 +735,10 @@ export const mn = {
     bracketWins: 'Хожил',
     bracketMatches: 'Тоглолтууд',
     bracketMat: '{mat}-р дэвжээ',
+
+    // Notifications (portal)
+    notificationsTitle: 'Мэдэгдэл',
+    notificationsEmpty: 'Мэдэгдэл алга байна.',
+    notificationsNew: 'Шинэ',
+    notificationsUnseen: '{count} шинэ мэдэгдэл',
 };

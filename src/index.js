@@ -61,6 +61,8 @@ export {
     isRoundRobin, playsAsRoundRobin, ELIMINATION_FORMATS, ROUND_ROBIN_FORMATS,
 } from './draws.js';
 
+export { myNotifications, markNotificationsSeen } from './notifications.js';
+
 export { readEventConfig, registrationWindow, canPay, canEdit, EVENT_TYPE } from './eventConfig.js';
 
 export {
