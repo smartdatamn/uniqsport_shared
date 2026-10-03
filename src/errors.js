@@ -81,6 +81,15 @@ export const ERROR_KEYS = Object.freeze({
     basket_not_found: 'basketNotFound',
     in_basket: 'basketInBasket',
 
+    // Refund requests
+    not_paid: 'refundNotPaid',
+    not_refundable: 'refundNotRefundable',
+    refund_closed: 'refundClosed',
+    bank_details_invalid: 'refundBankInvalid',
+    refund_exists: 'refundExists',
+    refund_not_found: 'refundNotFound',
+    refund_decided: 'refundDecided',
+
     // Codes
     code_invalid: 'codeWrong',
     code_expired: 'codeExpired',

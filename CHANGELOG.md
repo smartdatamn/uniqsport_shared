@@ -3,6 +3,18 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.12.0 — unreleased (Phase A, local only)
+
+### Added
+- `refunds.js`: `requestRefund`, `myRefunds`, `withdrawRefund`, `refundAmount`
+  (99% of what was paid), `bankDetailsProblems` (compware's rules),
+  `REFUND_STATUS_KEYS`, `REFUND_SHARE`, `BANK_NAMES` (suggestions only).
+- Endpoints `URL_COMP_REFUND_REQUEST`, `URL_COMP_REFUND_MINE`,
+  `URL_COMP_REFUND_WITHDRAW`.
+- Error codes `not_paid`, `not_refundable`, `refund_closed`,
+  `bank_details_invalid`, `refund_exists`, `refund_not_found`,
+  `refund_decided`; 21 strings. Mongolian is a first draft.
+
 ## 0.11.0 — unreleased (Phase A, local only)
 
 ### Added

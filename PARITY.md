@@ -23,4 +23,4 @@ behind a flag defaulting off, and the **Notes** column says why.
 | Claim a record someone else created | 0.6.0 | built (button on both national-ID screens; needs a token — next sign-in) | — | compware enforces who may act for an athlete (docs/design/athlete-access.md) |
 | Coach role & multi-athlete registration | 0.10.0 | — | coach bulk entry (`/events/:id/club/:academyId`) | Web-first by design; mobile gets a reduced "my club's athletes" view later, not bulk entry |
 | Bulk payment | 0.11.0 | — | `/events/:id/pay-many` (My entries, club page) | Web-first; one invoice per event, membership still paid per athlete (option (a)) |
-| Refund requests | — | — | — | Planned mobile-first; admin half exists in compadmin |
+| Refund requests | 0.12.0 | `EventRefundScreen` (entry action sheet) | `/events/:id/refund/:regId` (My entries) | Staff decide in compadmin. Mobile bundles but is not yet tried on a device |

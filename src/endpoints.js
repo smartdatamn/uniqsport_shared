@@ -58,6 +58,9 @@ export const ENDPOINT_PATHS = Object.freeze({
     URL_COMP_EVENT_PAYMENT_CHECK_QPAY_MEMBERSHIP_INVOICE: '/core/payment/qpay/check/membership/invoice',
     URL_PAYMENT_BASKET_CREATE: '/core/payment/basket/create',
     URL_PAYMENT_BASKET_CHECK: '/core/payment/basket/check',
+    URL_COMP_REFUND_REQUEST: '/comp/refund/request',
+    URL_COMP_REFUND_MINE: '/comp/refund/mine',
+    URL_COMP_REFUND_WITHDRAW: '/comp/refund/withdraw',
 
     // Teams. Deferred on the portal pending the team-sports redesign; kept
     // here because the mobile app still calls them.
