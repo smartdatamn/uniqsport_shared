@@ -59,6 +59,8 @@ export const ENDPOINT_PATHS = Object.freeze({
     URL_PAYMENT_BASKET_CREATE: '/core/payment/basket/create',
     URL_PAYMENT_BASKET_CHECK: '/core/payment/basket/check',
     URL_COMP_REFUND_REQUEST: '/comp/refund/request',
+    URL_COMP_EVENT_DRAWS: '/comp/event/draws',
+    URL_COMP_EVENT_DRAW: '/comp/event/draw',
     URL_COMP_REFUND_MINE: '/comp/refund/mine',
     URL_COMP_REFUND_WITHDRAW: '/comp/refund/withdraw',
 

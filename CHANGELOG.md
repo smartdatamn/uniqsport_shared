@@ -3,6 +3,16 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.14.0 — unreleased (Phase A, local only)
+
+### Added
+- `draws.js` — brackets from compadmin's Beta Draw: `eventDraws`, `eventDraw`,
+  `drawForGroup`, `bracketColumns`, `loserMatches`, `matchesByRoundName`,
+  `standings`, `personName`, `isRoundRobin`, `playsAsRoundRobin` (2-5 athletes
+  play a round robin whatever the format).
+- Endpoints `URL_COMP_EVENT_DRAWS`, `URL_COMP_EVENT_DRAW`; error code
+  `draw_not_found`; 11 strings.
+
 ## 0.13.0 — unreleased (Phase A, local only)
 
 ### Added

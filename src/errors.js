@@ -90,6 +90,9 @@ export const ERROR_KEYS = Object.freeze({
     refund_not_found: 'refundNotFound',
     refund_decided: 'refundDecided',
 
+    // Brackets
+    draw_not_found: 'bracketNotPublished',
+
     // Codes
     code_invalid: 'codeWrong',
     code_expired: 'codeExpired',

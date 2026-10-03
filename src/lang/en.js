@@ -722,4 +722,17 @@ export const en = {
     refundExists: 'This athlete already has a refund request for this competition. Please contact the organiser.',
     refundNotFound: 'Request not found.',
     refundDecided: 'The organiser has already decided this request.',
+
+    // Brackets (portal)
+    bracketTitle: 'Bracket',
+    showBracket: 'Bracket',
+    bracketNotPublished: 'The bracket for this group has not been published yet.',
+    bracketBye: 'BYE',
+    bracketTbd: 'To be decided',
+    bracketRepechage: 'Repechage and bronze',
+    bracketStandings: 'Standings',
+    bracketPlayed: 'Played',
+    bracketWins: 'Wins',
+    bracketMatches: 'Matches',
+    bracketMat: 'Mat {mat}',
 };

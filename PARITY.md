@@ -16,7 +16,7 @@ behind a flag defaulting off, and the **Notes** column says why.
 | Individual registration | 0.8.0 | shipped | chunk 7 (register, change, delete) | Same request body as the app; paying is chunk 8 |
 | QPay payment (event) | 0.9.0 | shipped | chunk 8 (QR, payment link, poll; membership first when required) | The app still sends a price; compware ignores it |
 | Membership purchase & renewal | 0.13.0 | shipped | chunk 9 (`/membership`, from My athletes) | The portal lists only sports that collect membership; the app lists all |
-| Competitor list & bracket | 0.8.0 | shipped | chunk 7 (list, read-only) | Brackets: chunk 11 |
+| Competitor list & bracket | 0.14.0 | shipped (first round, `uq_event_brackets`) | chunk 7 list; chunk 11 full bracket `/events/:id/bracket/:drawId` | **Diverges:** the portal reads compadmin's unmerged Beta Draw; the app still shows the first round from the older table. Port the app to `draws.js` once Beta Draw ships |
 | Notifications (list, count) | 0.1.0 | shipped | — | Web Push not planned for v1 |
 | Teams | 0.1.0 | shipped | **deferred** | Team model being redesigned for squad and small-group sports; team payment on hold |
 | HiPay saved cards | 0.1.0 | shipped | **blocked** | Return page is React-Native-only; needs a compware change and possibly HiPay-side config |

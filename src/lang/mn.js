@@ -722,4 +722,17 @@ export const mn = {
     refundExists: 'Энэ тамирчинд энэ тэмцээнд буцаалтын хүсэлт аль хэдийн байна. Зохион байгуулагчид хандана уу.',
     refundNotFound: 'Хүсэлт олдсонгүй.',
     refundDecided: 'Зохион байгуулагч хүсэлтийг аль хэдийн шийдвэрлэсэн.',
+
+    // Brackets (portal)
+    bracketTitle: 'Хуваарь',
+    showBracket: 'Хуваарь',
+    bracketNotPublished: 'Энэ ангиллын хуваарь хараахан нийтлэгдээгүй байна.',
+    bracketBye: 'BYE',
+    bracketTbd: 'Тодорхойгүй',
+    bracketRepechage: 'Тэнцүүлэх ба хүрэл медалийн тоглолт',
+    bracketStandings: 'Байр',
+    bracketPlayed: 'Тоглосон',
+    bracketWins: 'Хожил',
+    bracketMatches: 'Тоглолтууд',
+    bracketMat: '{mat}-р дэвжээ',
 };
