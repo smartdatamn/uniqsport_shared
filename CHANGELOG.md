@@ -3,6 +3,12 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.17.0 — unreleased (Phase A, local only)
+
+### Added
+- Error codes for plan 0.4: `team_not_found`, `team_not_yours`,
+  `card_not_found`, `card_not_yours`, `payment_not_found`; 5 strings.
+
 ## 0.16.0 — unreleased (Phase A, local only)
 
 ### Added

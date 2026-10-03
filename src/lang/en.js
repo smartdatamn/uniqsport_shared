@@ -747,4 +747,11 @@ export const en = {
     privacyTitle: 'Privacy policy',
     privacySource: 'The policy of Smart Data LLC, as published at uniq.mn. It is in Mongolian.',
     privacyOpenOriginal: 'Open the original',
+
+    // Teams and saved cards (plan 0.4)
+    teamNotFound: 'Team not found.',
+    teamNotYours: 'This team is not yours.',
+    cardNotFound: 'This card is not saved to your account.',
+    cardNotYours: 'This card is not saved to your account.',
+    paymentNotFound: 'No invoice was found for this entry. Please start the payment again.',
 };

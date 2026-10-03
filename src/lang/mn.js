@@ -747,4 +747,11 @@ export const mn = {
     privacyTitle: 'Нууцлалын бодлого',
     privacySource: 'Смарт Дата ХХК-ийн uniq.mn дээр нийтэлсэн нууцлалын бодлого.',
     privacyOpenOriginal: 'Эх хувийг нээх',
+
+    // Teams and saved cards (plan 0.4)
+    teamNotFound: 'Баг олдсонгүй.',
+    teamNotYours: 'Энэ баг таных биш байна.',
+    cardNotFound: 'Энэ карт таны бүртгэлд хадгалагдаагүй байна.',
+    cardNotYours: 'Энэ карт таны бүртгэлд хадгалагдаагүй байна.',
+    paymentNotFound: 'Энэ бүртгэлийн нэхэмжлэх олдсонгүй. Төлбөрөө дахин эхлүүлнэ үү.',
 };

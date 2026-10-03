@@ -90,6 +90,13 @@ export const ERROR_KEYS = Object.freeze({
     refund_not_found: 'refundNotFound',
     refund_decided: 'refundDecided',
 
+    // Teams and saved cards (plan 0.4)
+    team_not_found: 'teamNotFound',
+    team_not_yours: 'teamNotYours',
+    card_not_found: 'cardNotFound',
+    card_not_yours: 'cardNotYours',
+    payment_not_found: 'paymentNotFound',
+
     // Brackets
     draw_not_found: 'bracketNotPublished',
 
