@@ -18,7 +18,7 @@ behind a flag defaulting off, and the **Notes** column says why.
 | Membership purchase & renewal | 0.13.0 | shipped | chunk 9 (`/membership`, from My athletes) | The portal lists only sports that collect membership; the app lists all |
 | Competitor list & bracket | 0.14.0 | shipped (first round, `uq_event_brackets`) | chunk 7 list; chunk 11 full bracket `/events/:id/bracket/:drawId` | **Diverges:** the portal reads compadmin's unmerged Beta Draw; the app still shows the first round from the older table. Port the app to `draws.js` once Beta Draw ships |
 | Notifications (list, count) | 0.15.0 | shipped (count = total) | chunk 12 (`/notifications`, header bell with what is new) | The portal counts what is new since last looked; the app counts everything. Web Push not planned for v1 |
-| Help, privacy policy | 0.16.0 | shipped (HelpScreen; PrivacyScreen WebView of uniq.mn) | chunk 14 (`/help`, `/privacy`, footer links) | Support number now in `contact.js`; the portal serves a copy of the policy (uniq.mn's certificate is invalid) |
+| Help, privacy policy | 0.16.0 | shipped (HelpScreen; PrivacyScreen WebView of uniq.mn) | chunk 14 (`/help`, `/privacy`, footer links) | Support number now in `contact.js`; both show uniq.mn's own policy page |
 | Teams | 0.1.0 | shipped | **deferred** | Team model being redesigned for squad and small-group sports; team payment on hold |
 | HiPay saved cards | 0.1.0 | shipped | **blocked** | Return page is React-Native-only; needs a compware change and possibly HiPay-side config |
 | Claim a record someone else created | 0.6.0 | built (button on both national-ID screens; needs a token — next sign-in) | — | compware enforces who may act for an athlete (docs/design/athlete-access.md) |

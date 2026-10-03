@@ -8,6 +8,7 @@ a string key is a major change.
 ### Added
 - `contact.js`: `SUPPORT_PHONE`, `SUPPORT_PHONE_TEL`, `PRIVACY_POLICY_URL` —
   the support line was hardcoded in the app's HelpScreen. 4 strings.
+  `PRIVACY_POLICY_URL` is https: uniq.mn's certificate is valid.
 
 ## 0.15.0 — unreleased (Phase A, local only)
 

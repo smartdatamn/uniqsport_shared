@@ -10,8 +10,7 @@ export const SUPPORT_PHONE = '+976 7272-7002';
 export const SUPPORT_PHONE_TEL = 'tel:+97672727002';
 
 /**
- * The privacy policy as published by Smart Data LLC. The app shows this URL
- * in a WebView; the portal serves a copy (public/legal/privacy.html), because
- * uniq.mn's certificate is invalid - refresh that copy when this changes.
+ * The privacy policy as published by Smart Data LLC. The app shows it in a
+ * WebView, the portal in a sandboxed frame.
  */
 export const PRIVACY_POLICY_URL = 'https://uniq.mn/privacy/privacy.html?v=2';
