@@ -52,9 +52,11 @@ export {
 } from './bulkEntry.js';
 
 export {
-    requestRefund, myRefunds, withdrawRefund, refundAmount, bankDetailsProblems,
+    requestRefund, myRefunds, withdrawRefund, refundAmount, bankDetailsProblems, refundDeadline, refundsOpen,
     REFUND_SHARE, REFUND_STATUS_KEYS, BANK_NAMES,
 } from './refunds.js';
+
+export { TERMS_VERSION, TERMS_ACCEPTANCE, termsText, termsBlocks } from './terms.js';
 
 export {
     eventDraws, eventDraw, drawForGroup, bracketColumns, loserMatches, matchesByRoundName, standings, personName,

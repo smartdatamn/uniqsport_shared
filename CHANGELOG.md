@@ -3,6 +3,20 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.18.0 — unreleased (Phase A, local only)
+
+### Changed
+- Refunds: `REFUND_SHARE` 0.98 (2% bank and transaction fees); the deadline is
+  the end of registration. New `refundDeadline(eventConfig)`,
+  `refundsOpen(eventConfig)`. Refund strings say the entry is cancelled when
+  the organiser authorizes.
+
+### Added
+- `terms.js`: the Terms and Conditions draft (2026-10-04, placeholders not yet
+  filled) in both languages, `TERMS_VERSION`, `TERMS_ACCEPTANCE`,
+  `termsText`, `termsBlocks` (a small block parser both clients render).
+- Strings for the refund policy and the Terms (8).
+
 ## 0.17.0 — unreleased (Phase A, local only)
 
 ### Added

@@ -5,11 +5,13 @@ import { api, getToken } from './client.js';
  * decide in compadmin and transfer the money by hand.
  *
  * Who may ask: whoever may act for the athlete, or whoever paid the entry in
- * a basket. What: a paid, approved entry, until the event's
- * update_final_date. The entry stays as it is until staff decide. The amount
- * is 99% of what was paid (refundAmount) - QPay's 1% is not returned. One
- * request per athlete and competition; a request still 'requested' can be
- * withdrawn, which lets the athlete ask again.
+ * a basket. What: a paid, approved entry, until registration ends (the
+ * event's reg_end_date - refundDeadline). Staff authorize the refund in
+ * compadmin, which cancels the entry ('refunded') at once and notifies the
+ * person who asked. The amount is 98% of what was paid (refundAmount) - bank
+ * and transaction fees, usually 2%, are not returned. One request per athlete
+ * and competition; a request still 'requested' can be withdrawn, which lets
+ * the athlete ask again.
  *
  * Every call is POST and token-only, answering auth_required without a
  * request when no token is stored.
@@ -22,9 +24,21 @@ async function post(endpoint, body) {
     return api(endpoint, { method: 'POST', body });
 }
 
-/** What staff transfer back: 99% of what was paid, whole tögrög. */
-export const REFUND_SHARE = 0.99;
+/** What staff transfer back: 98% of what was paid, whole tögrög (2% bank and transaction fees). */
+export const REFUND_SHARE = 0.98;
 export const refundAmount = (paid) => Math.round(Number(paid || 0) * REFUND_SHARE);
+
+/**
+ * The last moment to ask for a refund: the end of registration, from
+ * readEventConfig()'s result. Null when the event sets no end.
+ */
+export function refundDeadline(eventConfig) {
+    const end = eventConfig?.config?.reg_end_date;
+    return end ? String(end) : null;
+}
+
+/** Whether refunds can still be asked for - the server's own isFinished. */
+export const refundsOpen = (eventConfig) => eventConfig?.isFinished !== true;
 
 /** Request states, as compware sends them (trimmed), to translation keys. */
 export const REFUND_STATUS_KEYS = Object.freeze({

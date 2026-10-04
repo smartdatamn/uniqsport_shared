@@ -703,14 +703,14 @@ export const en = {
     // Refund requests (portal and app)
     refundAsk: 'Ask for a refund',
     refundTitle: 'Refund request',
-    refundIntro: 'The organiser reviews the request and transfers the money to the account below. The entry stays as it is until they decide.',
-    refundAmountLine: 'Paid {paid}₮ · refund {amount}₮ (QPay keeps 1%)',
+    refundIntro: 'The organiser reviews the request and transfers the money to the account below. When they authorize it, the entry is cancelled. Until then it stays as it is.',
+    refundAmountLine: 'Paid {paid}₮ · refund {amount}₮ (2% bank and transaction fees are not returned)',
     refundBank: 'Bank',
     refundAccount: 'Account number',
     refundHolder: 'Account holder',
     refundReason: 'Reason (optional)',
     refundSend: 'Send request',
-    refundSent: 'Request sent. The organiser will review it.',
+    refundSent: 'Request sent. The organiser will review it, and you will be notified when the refund is authorized.',
     refundWithdraw: 'Withdraw request',
     refundStatusRequested: 'Refund requested',
     refundStatusApproved: 'Refund transferred',
@@ -754,4 +754,14 @@ export const en = {
     cardNotFound: 'This card is not saved to your account.',
     cardNotYours: 'This card is not saved to your account.',
     paymentNotFound: 'No invoice was found for this entry. Please start the payment again.',
+
+    // Refund policy and terms
+    refundPolicyTitle: 'Refund policy',
+    refundPolicyLine: 'You can ask for a refund until registration ends ({date}). 98% of the fee paid is returned; 2% bank and transaction fees are not. When the organiser authorizes the refund, the entry is cancelled.',
+    refundPolicyNoDate: 'You can ask for a refund until registration ends. 98% of the fee paid is returned; 2% bank and transaction fees are not. When the organiser authorizes the refund, the entry is cancelled.',
+    refundPolicyClosed: 'Registration has ended, so refunds can no longer be requested here. Please contact the organiser.',
+    termsTitle: 'Terms and conditions',
+    termsDraftNote: 'Draft. Some details, such as the operating company and contacts, are still to be completed.',
+    termsAcceptLabel: 'Terms and conditions',
+    termsRequired: 'Please read and agree to the terms and conditions.',
 };

@@ -38,9 +38,9 @@ test('my requests for one competition; withdrawing by id', async () => {
     assert.deepEqual(calls.map((c) => JSON.parse(c.init.body)), [{ event_id: 781 }, {}, { request_id: 3 }]);
 });
 
-test('99% back, whole tögrög', () => {
-    assert.equal(refunds.refundAmount(30000), 29700);
-    assert.equal(refunds.refundAmount('45000.00'), 44550);
+test('98% back, whole tögrög', () => {
+    assert.equal(refunds.refundAmount(30000), 29400);
+    assert.equal(refunds.refundAmount('45000.00'), 44100);
     assert.equal(refunds.refundAmount(null), 0);
 });
 
@@ -55,4 +55,11 @@ test('every refund code and status has a message', () => {
         assert.notEqual(errorMessage(code, { fallback: '__none__' }), '__none__', code);
     }
     for (const key of Object.values(refunds.REFUND_STATUS_KEYS)) assert.notEqual(tr(key), key, key);
+});
+
+test('the refund deadline is the end of registration; open until the server says finished', () => {
+    assert.equal(refunds.refundDeadline({ config: { reg_end_date: '2026-11-01 00:00:00' } }), '2026-11-01 00:00:00');
+    assert.equal(refunds.refundDeadline({ config: {} }), null);
+    assert.equal(refunds.refundsOpen({ isFinished: false }), true);
+    assert.equal(refunds.refundsOpen({ isFinished: true }), false);
 });
