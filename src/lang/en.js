@@ -764,4 +764,10 @@ export const en = {
     termsDraftNote: 'Draft. Some details, such as the operating company and contacts, are still to be completed.',
     termsAcceptLabel: 'Terms and conditions',
     termsRequired: 'Please read and agree to the terms and conditions.',
+
+    // Refunds after a category merge; accepting the Terms
+    refundMergedWindow: 'Your entry was moved in a category merge. You can ask for a refund until {date}.',
+    termsUpdatedTitle: 'Please review the terms and conditions',
+    termsUpdatedBody: 'Read and agree to the current terms and conditions to keep using UniQ Sport.',
+    termsAgree: 'I agree',
 };

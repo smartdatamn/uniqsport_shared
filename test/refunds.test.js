@@ -63,3 +63,19 @@ test('the refund deadline is the end of registration; open until the server says
     assert.equal(refunds.refundsOpen({ isFinished: false }), true);
     assert.equal(refunds.refundsOpen({ isFinished: true }), false);
 });
+
+test('a merged entry may ask for 24 hours from the move, after registration ended', () => {
+    const closed = { isFinished: true };
+    const movedAt = '2026-10-04 10:00:00';   // server time, Ulaanbaatar
+    const end = refunds.mergedWindowEnd({ merged_at: movedAt });
+    assert.equal(end.toISOString(), '2026-10-05T02:00:00.000Z');
+    assert.equal(refunds.refundOpenFor(closed, { merged_at: movedAt }, new Date('2026-10-05T01:59:00Z')), true);
+    assert.equal(refunds.refundOpenFor(closed, { merged_at: movedAt }, new Date('2026-10-05T02:01:00Z')), false);
+    assert.equal(refunds.refundOpenFor(closed, { merged_at: null }), false);
+    assert.equal(refunds.refundOpenFor({ isFinished: false }, {}), true);
+});
+
+test('the merged window end, shown on the server clock', () => {
+    assert.equal(refunds.mergedWindowEndText({ merged_at: '2026-10-04 23:30:00' }), '2026-10-05 23:30:00');
+    assert.equal(refunds.mergedWindowEndText({ merged_at: null }), null);
+});

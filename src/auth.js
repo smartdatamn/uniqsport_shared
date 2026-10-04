@@ -73,6 +73,8 @@ export async function storeUser(data) {
         emailVerified: data.email_verified == true,
         pendingPhoneNumber: data.pending_mobile_number ? data.pending_mobile_number : '',
         pendingEmail: data.pending_email ? data.pending_email : '',
+        // The Terms version the account accepted (null: never).
+        termsVersion: data.terms_version ?? null,
     });
 
     await getStorage().setItem(STORAGE_KEYS.user, JSON.stringify(userInfo));

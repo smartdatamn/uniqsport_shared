@@ -1,4 +1,5 @@
 import { api, getToken } from './client.js';
+import { serverInstant } from './format.js';
 
 /**
  * Asking for an entry fee back. compware RefundRequestRepository; staff
@@ -39,6 +40,41 @@ export function refundDeadline(eventConfig) {
 
 /** Whether refunds can still be asked for - the server's own isFinished. */
 export const refundsOpen = (eventConfig) => eventConfig?.isFinished !== true;
+
+/** How long an athlete moved in a category merge may still ask, from the move. */
+export const MERGED_WINDOW_HOURS = 24;
+
+/**
+ * When a merged entry's refund window closes: 24 hours after staff moved it
+ * (registration.merged_at, set by compadmin), or null for an entry never
+ * moved after registration ended.
+ */
+export function mergedWindowEnd(registration) {
+    const moved = serverInstant(registration?.merged_at ?? '');
+    return moved ? new Date(moved.getTime() + MERGED_WINDOW_HOURS * 3600 * 1000) : null;
+}
+
+/**
+ * The same moment as a server-time string ('YYYY-MM-DD HH:MM:SS', Ulaanbaatar),
+ * for display with dateTimePart - which shows server strings as they are.
+ */
+export function mergedWindowEndText(registration) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2}):?(\d{2})?/.exec(String(registration?.merged_at ?? ''));
+    if (!m) return null;
+    // Wall-clock arithmetic on the server's own clock: no time zone involved.
+    const t = Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +(m[6] ?? 0)) + MERGED_WINDOW_HOURS * 3600 * 1000;
+    return new Date(t).toISOString().replace('T', ' ').substring(0, 19);
+}
+
+/**
+ * Whether this entry may still ask for a refund: while registration is open,
+ * or within 24 hours of being moved in a merge. compware checks again.
+ */
+export function refundOpenFor(eventConfig, registration, now = new Date()) {
+    if (refundsOpen(eventConfig)) return true;
+    const end = mergedWindowEnd(registration);
+    return end !== null && now < end;
+}
 
 /** Request states, as compware sends them (trimmed), to translation keys. */
 export const REFUND_STATUS_KEYS = Object.freeze({

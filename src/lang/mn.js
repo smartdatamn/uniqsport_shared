@@ -764,4 +764,10 @@ export const mn = {
     termsDraftNote: 'Төсөл. Платформ ажиллуулагч байгууллага, холбоо барих хаяг зэрэг зарим мэдээллийг нөхөж бөглөнө.',
     termsAcceptLabel: 'Үйлчилгээний нөхцөл',
     termsRequired: 'Үйлчилгээний нөхцөлийг уншиж, зөвшөөрнө үү.',
+
+    // Refunds after a category merge; accepting the Terms
+    refundMergedWindow: 'Таны бүртгэлийг ангилал нэгтгэлээр шилжүүлсэн. {date} хүртэл төлбөр буцаах хүсэлт гаргах боломжтой.',
+    termsUpdatedTitle: 'Үйлчилгээний нөхцөлтэй танилцана уу',
+    termsUpdatedBody: 'UniQ Sport-ыг үргэлжлүүлэн ашиглахын тулд одоогийн үйлчилгээний нөхцөлийг уншиж, зөвшөөрнө үү.',
+    termsAgree: 'Зөвшөөрөх',
 };

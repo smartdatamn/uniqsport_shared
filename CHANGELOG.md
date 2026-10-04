@@ -3,6 +3,16 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.19.0 — unreleased (Phase A, local only)
+
+### Added
+- Refunds after a category merge: `refundOpenFor(eventConfig, registration)`,
+  `mergedWindowEnd`, `mergedWindowEndText`, `MERGED_WINDOW_HOURS` (24) - an
+  entry staff moved after registration ended (`merged_at`) may ask for 24 hours.
+- Terms acceptance: `acceptTerms(version)` (POST /core/user/terms/accept,
+  token-only), `termsAccepted(user)`; the stored user keeps `termsVersion`.
+  Endpoint `URL_USER_TERMS_ACCEPT`; 4 strings.
+
 ## 0.18.0 — unreleased (Phase A, local only)
 
 ### Changed

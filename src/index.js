@@ -53,6 +53,7 @@ export {
 
 export {
     requestRefund, myRefunds, withdrawRefund, refundAmount, bankDetailsProblems, refundDeadline, refundsOpen,
+    refundOpenFor, mergedWindowEnd, mergedWindowEndText, MERGED_WINDOW_HOURS,
     REFUND_SHARE, REFUND_STATUS_KEYS, BANK_NAMES,
 } from './refunds.js';
 
@@ -86,7 +87,7 @@ export {
 // so the UserHelper facade below — the mobile app's — stays exactly as it was.
 export {
     login, logout, fetchMe, startVerification, confirmVerification,
-    completeSignup, completeReset, passwordProblem, PURPOSE,
+    completeSignup, completeReset, passwordProblem, PURPOSE, acceptTerms, termsAccepted,
 } from './account.js';
 
 export { subscribeSession } from './session.js';

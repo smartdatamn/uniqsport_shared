@@ -1,3 +1,4 @@
+import { TERMS_VERSION } from './terms.js';
 import { api, getToken } from './client.js';
 import { storeSession, storeUser } from './auth.js';
 import { clearStoredSession, emitSession } from './session.js';
@@ -254,3 +255,17 @@ export function passwordProblem(password, confirm) {
     if (password !== confirm) return 'passwordMismatch';
     return null;
 }
+
+/**
+ * Records that the signed-in user accepted the Terms (compware POST
+ * /core/user/terms/accept, token-only): rti_user.terms_version and
+ * terms_accepted_at. Answers auth_required without a request when no token
+ * is stored.
+ */
+export async function acceptTerms(version = TERMS_VERSION) {
+    if (!(await getToken())) return { ok: false, data: null, code: 'auth_required', message: null, raw: null, httpStatus: null };
+    return api('URL_USER_TERMS_ACCEPT', { method: 'POST', body: { version } });
+}
+
+/** Whether a user (as /me or sign-in returns it) has accepted the current Terms. */
+export const termsAccepted = (user, version = TERMS_VERSION) => (user?.termsVersion ?? user?.terms_version ?? null) === version;
