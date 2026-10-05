@@ -770,4 +770,13 @@ export const mn = {
     termsUpdatedTitle: 'Үйлчилгээний нөхцөлтэй танилцана уу',
     termsUpdatedBody: 'UniQ Sport-ыг үргэлжлүүлэн ашиглахын тулд одоогийн үйлчилгээний нөхцөлийг уншиж, зөвшөөрнө үү.',
     termsAgree: 'Зөвшөөрөх',
+    // Sport attributes and belts on the registration form
+    attributesTitle: 'Нэмэлт мэдээлэл',
+    attributesInvalid: 'Нэмэлт мэдээллийг бүрэн, зөв бөглөнө үү.',
+    attrRequired: 'заавал бөглөнө үү',
+    attrNumber: 'тоо оруулна уу',
+    attrTooLong: 'хамгийн ихдээ {max} тэмдэгт',
+    attrInvalid: 'дахин сонгоно уу',
+    attrOptional: 'заавал биш',
+    attrKeptOnAthlete: 'Энэ тамирчинд хадгалагдаж, дараагийн бүртгэлд бөглөгдөнө.',
 };

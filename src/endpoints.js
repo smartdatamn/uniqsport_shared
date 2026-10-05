@@ -63,6 +63,7 @@ export const ENDPOINT_PATHS = Object.freeze({
     URL_COMP_EVENT_DRAW: '/comp/event/draw',
     URL_COMP_REFUND_MINE: '/comp/refund/mine',
     URL_COMP_REFUND_WITHDRAW: '/comp/refund/withdraw',
+    URL_COMP_EVENT_ATTRIBUTES: '/comp/event/attributes',
 
     // Teams. Deferred on the portal pending the team-sports redesign; kept
     // here because the mobile app still calls them.

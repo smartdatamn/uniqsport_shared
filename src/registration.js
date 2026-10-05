@@ -133,15 +133,21 @@ export async function myAthletesNotInEvent(eventId) {
  *                          genderCode, phoneNumber, profileImage, idImage
  * @param {object} entry    eventId, academyId, academyName, entryId, ageId,
  *                          beltId, weightId
- * @param {{regId?: number|null}} [options]
+ * @param {{regId?: number|null, attributes?: object[]|null}} [options]
+ *   attributes: attributesPayload(...) - the sport's attributes. Sent only
+ *   when given; compware then checks them (attributes_invalid, with
+ *   `attributes: [{attribute_id, code}]` beside the usual keys).
  */
-export async function registerForEvent(athlete, entry, { regId = null } = {}) {
+export async function registerForEvent(athlete, entry, { regId = null, attributes = null } = {}) {
     const userId = await signedInId();
     if (!userId) return refuse('auth_required');
+
+    const extra = Array.isArray(attributes) ? { attributes } : {};
 
     return api('URL_COMP_EVENT_REGISTER', {
         method: 'POST',
         body: {
+            ...extra,
             userId,
             eventId: entry.eventId,
             registerNumber: String(athlete.registerNumber ?? '').trim().toUpperCase(),
@@ -176,9 +182,11 @@ export async function deleteRegistration(regId) {
 
 /**
  * EventRegistrationScreen's checks, as translation keys, in its order. The
- * photos count as present when the athlete already has them.
+ * photos count as present when the athlete already has them. askBelt false
+ * (attributes.beltStep - a sport without belts, a division with none) skips
+ * the belt.
  */
-export function registrationProblems(form, { foreignPassport = false } = {}) {
+export function registrationProblems(form, { foreignPassport = false, askBelt = true } = {}) {
     const problems = [];
     const reg = String(form.registerNumber ?? '').trim();
     const filled = (v) => v !== null && v !== undefined && String(v).trim() !== '';
@@ -193,7 +201,7 @@ export function registrationProblems(form, { foreignPassport = false } = {}) {
     if (form.academyIsOther && !filled(form.academyName)) problems.push('valAcademyName');
     if (!filled(form.entryId)) problems.push('valEntry');
     if (!filled(form.ageId)) problems.push('valAge');
-    if (!filled(form.beltId)) problems.push('valBelt');
+    if (askBelt && !filled(form.beltId)) problems.push('valBelt');
     if (!filled(form.weightId)) problems.push('valWeight');
     if (!filled(form.profileImage)) problems.push('valPortrait');
     if (!filled(form.idImage)) problems.push('valDocument');

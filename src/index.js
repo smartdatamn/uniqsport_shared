@@ -59,6 +59,12 @@ export {
 
 export { TERMS_VERSION, TERMS_ACCEPTANCE, termsText, termsBlocks } from './terms.js';
 
+// What a sport's registration asks beyond the division, and its belt switch.
+export {
+    registrationAttributes, attributeValues, toggleOption, attributeProblems, attributeProblemText,
+    attributesPayload, attributeLabel, optionLabel, attributeValueText, beltStep, ATTRIBUTE_KINDS,
+} from './attributes.js';
+
 export {
     eventDraws, eventDraw, drawForGroup, bracketColumns, loserMatches, matchesByRoundName, standings, personName,
     isRoundRobin, playsAsRoundRobin, ELIMINATION_FORMATS, ROUND_ROBIN_FORMATS,

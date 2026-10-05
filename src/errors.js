@@ -62,6 +62,9 @@ export const ERROR_KEYS = Object.freeze({
     already_coach: 'alreadyCoach',
     role_not_found: 'roleNotFound',
 
+    // Sport attributes on a registration (each one's own code: attributes.attributeProblemText)
+    attributes_invalid: 'attributesInvalid',
+
     // Coach bulk entry (a refused row's own code: bulkEntry.ROW_ERROR_KEYS)
     event_not_found: 'bulkEventNotFound',
     team_event: 'bulkTeamEvent',

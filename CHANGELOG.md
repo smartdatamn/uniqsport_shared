@@ -3,6 +3,22 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.20.0 — unreleased (Phase A, local only)
+
+### Added
+- `attributes.js`: what a sport's registration asks beyond the division
+  (compware SportAttributes, set up in compadmin). `registrationAttributes(eventId,
+  {regId, memberId})` (POST /comp/event/attributes) gives the sport's
+  attributes - kind select / multi / number / text, scope athlete / entry,
+  required, options, kept values - and `usesBelts`. Form helpers:
+  `attributeValues`, `toggleOption`, `attributeProblems` (compware's checks),
+  `attributeProblemText`, `attributesPayload`, `attributeLabel`,
+  `optionLabel`, `attributeValueText`, `beltStep(usesBelts, belts)`.
+- `registerForEvent(..., {attributes})` sends them; `registrationProblems(...,
+  {askBelt})` skips the belt for a sport without belts.
+- Error code `attributes_invalid`; endpoint `URL_COMP_EVENT_ATTRIBUTES`;
+  9 strings.
+
 ## 0.19.0 — unreleased (Phase A, local only)
 
 ### Added

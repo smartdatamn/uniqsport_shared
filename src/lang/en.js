@@ -770,4 +770,13 @@ export const en = {
     termsUpdatedTitle: 'Please review the terms and conditions',
     termsUpdatedBody: 'Read and agree to the current terms and conditions to keep using UniQ Sport.',
     termsAgree: 'I agree',
+    // Sport attributes and belts on the registration form
+    attributesTitle: 'Additional information',
+    attributesInvalid: 'Please fill in the additional information correctly.',
+    attrRequired: 'please fill this in',
+    attrNumber: 'please enter a number',
+    attrTooLong: 'at most {max} characters',
+    attrInvalid: 'please choose again',
+    attrOptional: 'optional',
+    attrKeptOnAthlete: 'Kept for this athlete and filled in next time.',
 };
