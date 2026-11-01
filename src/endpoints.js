@@ -49,6 +49,8 @@ export const ENDPOINT_PATHS = Object.freeze({
     URL_COMP_MEMBER_CLAIMS_MINE: '/comp/member/claims/mine',
     URL_COMP_MEMBER_CLAIMS_PENDING: '/comp/member/claims/pending',
     URL_COMP_MEMBER_CLAIM_DECIDE: '/comp/member/claim/decide',
+    URL_COMP_MEMBER_AFFILIATION: '/comp/member/affiliation',
+    URL_COMP_MEMBER_AFFILIATION_OPTIONS: '/comp/member/affiliation/options',
 
     // Payment — QPay. create/invoice may answer with a MEMBERSHIP invoice
     // instead of the event one; see payments.js invoiceKind().

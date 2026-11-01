@@ -1,4 +1,5 @@
 import { api, getToken } from './client.js';
+import { getUserInfo } from './auth.js';
 import { errorMessage as sharedErrorMessage } from './errors.js';
 
 /**
@@ -139,8 +140,13 @@ export function pollUntilPaid(check, options = {}) {
  * @param {{membershipTypeId?: number|null}} [options]
  */
 export async function requestEventInvoice(regId, { membershipTypeId = null } = {}) {
+    // The payer is named so compware knows who is paying: someone who may act
+    // for the athlete withdraws a coach's pending basket holding this entry
+    // and pays alone (anyone else gets in_basket). A token names the caller
+    // anyway; this is for the legacy path.
+    const stored = await getUserInfo().catch(() => null);
     const envelope = await api('URL_COMP_EVENT_PAYMENT_CREATE_QPAY_INVOICE', {
-        query: { reg_id: regId, membership_type_id: membershipTypeId ?? undefined },
+        query: { reg_id: regId, membership_type_id: membershipTypeId ?? undefined, user_id: stored?.userid ?? undefined },
     });
 
     return { ...envelope, kind: invoiceKind(envelope.raw), qpay: envelope.ok ? parseQPay(envelope.data) : null };
@@ -208,9 +214,20 @@ export async function requestBasketInvoice(eventId, regIds) {
 
 /** Whether a basket has been paid (compware asks QPay, and settles it once). */
 export async function basketPaid(basketId) {
-    if (!(await getToken())) return false;
+    return (await basketStatus(basketId)) === 'paid';
+}
+
+/**
+ * 'paid', 'withdrawn' or 'pending'. Withdrawn: an athlete paid, cancelled or
+ * moved one of its entries on their own, or a newer basket took them - its QR
+ * no longer counts; make a new basket for the rest.
+ */
+export async function basketStatus(basketId) {
+    if (!(await getToken())) return 'pending';
     const envelope = await api('URL_PAYMENT_BASKET_CHECK', { method: 'POST', body: { basket_id: basketId } });
-    return envelope.ok && envelope.data?.paid === true;
+    if (!envelope.ok) return 'pending';
+    if (envelope.data?.paid === true) return 'paid';
+    return envelope.data?.withdrawn === true ? 'withdrawn' : 'pending';
 }
 
 /** A refused basket's reasons: reg id -> code. */

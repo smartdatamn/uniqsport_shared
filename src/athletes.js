@@ -51,8 +51,8 @@ export const myClaims = () => post('URL_COMP_MEMBER_CLAIMS_MINE');
 export const claimsToDecide = () => post('URL_COMP_MEMBER_CLAIMS_PENDING');
 
 /**
- * Approving hands the record to the claimant — after which neither I nor the
- * academy's coaches may act for it.
+ * Approving hands the record to the claimant, who manages it from then on.
+ * I lose access; the academy's owners and coaches keep theirs.
  */
 export const decideClaim = (claimId, approve) =>
     post('URL_COMP_MEMBER_CLAIM_DECIDE', { claim_id: claimId, decision: approve ? 'approve' : 'reject' });
@@ -79,5 +79,48 @@ export const grantCoach = (academyId, identity, registerNumber) =>
 export const revokeCoach = (academyId, roleId) =>
     post('URL_COMP_ACADEMY_COACH_REVOKE', { academy_id: academyId, role_id: roleId });
 
-/** Owner or coach: the academy's athletes I may act for — its unclaimed ones. */
+/** Owner or coach: the academy's athletes, all of whom I may act for; claimed_at marks the self-managed. */
 export const academyAthletes = (academyId) => post('URL_COMP_ACADEMY_ATHLETES', { academy_id: academyId });
+
+// --- An athlete's club, school and province / region ---------------------------
+
+/**
+ * An athlete has at most one of each (compware repo\comp\Affiliation). Only
+ * the club gives anyone access: its owners and coaches act for the athlete.
+ * A school or province is what the athlete competes under where an event
+ * lists those.
+ *
+ * Per kind: the athlete row's id and name fields, and the strings.
+ */
+export const AFFILIATIONS = Object.freeze([
+    Object.freeze({ kind: 'club', idField: 'academy_id', nameField: 'academy_name', label: 'athleteClub', none: 'noClub' }),
+    Object.freeze({ kind: 'school', idField: 'school_id', nameField: 'school_name', label: 'athleteSchool', none: 'noSchool' }),
+    Object.freeze({ kind: 'region', idField: 'region_id', nameField: 'region_name', label: 'athleteRegion', none: 'noRegion' }),
+]);
+
+/**
+ * What an athlete can choose: {club: [...], school: [...], region: [...]},
+ * each {id, name, name_en} by name - merged duplicates, Individual and the old
+ * "type your club" entry left out. The same for everyone.
+ */
+export async function affiliationOptions() {
+    const envelope = await post('URL_COMP_MEMBER_AFFILIATION_OPTIONS');
+    const data = envelope.ok && envelope.data ? envelope.data : {};
+    const pick = (k) => (Array.isArray(data[k]) ? data[k] : []);
+    return { ok: envelope.ok, code: envelope.code, club: pick('club'), school: pick('school'), region: pick('region') };
+}
+
+/**
+ * Sets the club, school or province / region of an athlete I manage; null
+ * clears it. Only the record's manager may - a coach cannot move an athlete
+ * (member_owned_by_other). Choosing the club moves the club's access to
+ * the athlete with it.
+ *
+ * Answers {id, kind, <academy_id|school_id|region_id>, academy: {id, name, name_en} | null}.
+ * Codes: member_not_found, member_owned_by_other, academy_not_found
+ * (not that kind, or not listed), invalid_request (unknown kind).
+ */
+export const changeAthleteAffiliation = (memberId, kind, academyId) =>
+    post('URL_COMP_MEMBER_AFFILIATION', { member_id: memberId, kind, academy_id: academyId ?? 0 });
+
+export const changeAthleteClub = (memberId, academyId) => changeAthleteAffiliation(memberId, 'club', academyId);

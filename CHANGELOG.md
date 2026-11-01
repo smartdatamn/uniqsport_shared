@@ -3,6 +3,41 @@
 All notable changes to `@uniq/shared`. Semver: removing an export or renaming
 a string key is a major change.
 
+## 0.21.0 — 2026-10-25
+
+### Added
+- `basketStatus(basketId)`: 'paid' | 'withdrawn' | 'pending'. A coach's
+  basket is withdrawn when the athlete pays, cancels or moves one of its
+  entries on their own. String `basketWithdrawn`; error code `already_paid`.
+
+- An athlete's club, school and province / region (compware migration
+  2026_10_27_000000): `AFFILIATIONS`, `affiliationOptions()`,
+  `changeAthleteAffiliation(memberId, kind, academyId | null)` and
+  `changeAthleteClub(memberId, academyId | null)`. Only the athlete's manager
+  chooses; coaches cannot. `affiliationFor(athlete, academies)` pre-fills a
+  registration's club from the athlete's record. Strings `athleteClub`,
+  `athleteSchool`, `athleteRegion`, `noClub`, `noSchool`, `noRegion`,
+  `affiliationsTitle`, `athleteClubHint`, `clubFilter`, `schoolFilter`,
+  `regionFilter`, `clubSaved`, `saveClub`, `clubNotFound`; error code
+  `academy_not_found`.
+
+- Club membership (compware ClubMembership, 2026-11-01):
+  `eventAcademies(orgTypes, eventId)` sends the event, so a competition that
+  requires club membership lists only clubs whose membership covers its date,
+  plus Individual. Error code `club_membership_required`; strings
+  `clubMembershipRequired`, `bulkMembershipMissing`.
+
+### Changed
+- `requestEventInvoice` names the signed-in payer (`user_id`), so compware
+  lets the athlete pay alone an entry that is in a coach's basket.
+
+## 0.20.1 — 2026-10-25
+
+### Changed
+- `approveClaimConfirm`, `clubAthletesHint`: a club's owners and coaches now
+  act for every athlete of the club, claimed records included (compware
+  AthleteAccess). Approving a claim no longer ends their access.
+
 ## 0.20.0 — unreleased (Phase A, local only)
 
 ### Added

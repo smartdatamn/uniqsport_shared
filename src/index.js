@@ -43,7 +43,7 @@ export {
     parseQPay, qrImageSrc, toAmount, invoiceKind, pollUntilPaid,
     POLL_INTERVAL_EVENT_MS, POLL_INTERVAL_MEMBERSHIP_MS,
     requestEventInvoice, eventInvoicePaid, membershipInvoicePaid, requestMembershipInvoice,
-    requestBasketInvoice, basketPaid, basketLineErrors, BASKET_LINE_KEYS, MAX_BASKET_LINES,
+    requestBasketInvoice, basketPaid, basketStatus, basketLineErrors, BASKET_LINE_KEYS, MAX_BASKET_LINES,
 } from './payments.js';
 
 export {
@@ -100,7 +100,7 @@ export { subscribeSession } from './session.js';
 
 // Individual registration: the division cascade, labels, the form's checks.
 export {
-    eventEntries, entryOptions, entryWeights, eventAcademies, myEventRegistrations, myAthletesNotInEvent,
+    eventEntries, entryOptions, entryWeights, eventAcademies, affiliationFor, myEventRegistrations, myAthletesNotInEvent,
     registerForEvent, deleteRegistration, registrationProblems, entryFee, entryLabel, ageLabel, weightLabel,
     REG_STATUS_KEYS, eventEntriesWithCounts, competitorGroups,
 } from './registration.js';
@@ -112,6 +112,7 @@ export { myAthletes, saveAthlete, deleteAthlete, athleteProblems } from './membe
 export {
     claimMember, cancelClaim, myClaims, claimsToDecide, decideClaim,
     myAcademyRoles, academyCoaches, grantCoach, revokeCoach, academyAthletes, CLAIM_STATUS_KEYS,
+    AFFILIATIONS, affiliationOptions, changeAthleteAffiliation, changeAthleteClub,
 } from './athletes.js';
 
 // Profile editing on api(): names, phone / address changes, delete.

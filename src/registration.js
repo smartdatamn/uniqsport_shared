@@ -11,8 +11,10 @@ import { tr } from './i18n.js';
  *  2. A division has age groups and belts: entryOptions(entryId).
  *  3. Choosing a belt clears the age group; choosing an age group loads its
  *     weight classes: entryWeights(entryId, ageId).
- *  4. A club comes from the event's list (by the config's org_types); one
- *     marked is_other asks for the club's name instead.
+ *  4. A club comes from the event's list (by the config's org_types), picked,
+ *     never typed: compware lists no "type your club" entry since 2026-10-27,
+ *     and "Individual" is in every event's list. The form pre-fills it from
+ *     the athlete's record - affiliationFor().
  *  5. registrationProblems() is the screen's checks, in its order.
  *  6. registerForEvent() sends exactly the body the screen sends, so compware
  *     sees the same request from either client. compware decides who may act
@@ -90,9 +92,34 @@ export async function entryWeights(entryId, ageId) {
     return list(await api('URL_COMP_EVENT_ENTRY_WEIGHT', { query: { entry_id: entryId, age_id: ageId } }));
 }
 
-/** The clubs an event lists, by its config's org_types (sent as is, e.g. "{team}"). */
-export async function eventAcademies(orgTypes) {
-    return list(await api('URL_COMP_EVENT_ACADEMIES', { query: orgTypes ? { type: orgTypes } : {} }));
+/**
+ * The athlete's own club, school or province / region that this event lists
+ * (in that order), to pre-fill the form; null when it lists none of them.
+ * `athlete` is a row with academy_id / school_id / region_id (member check,
+ * my athletes, athletes not yet in the event).
+ */
+export function affiliationFor(athlete, academies) {
+    if (!athlete || !Array.isArray(academies)) return null;
+    const listed = new Set(academies.map((a) => Number(a.id)));
+    for (const field of ['academy_id', 'school_id', 'region_id']) {
+        const id = athlete[field];
+        if (id !== null && id !== undefined && listed.has(Number(id))) return Number(id);
+    }
+    return null;
+}
+
+/**
+ * The clubs an event lists, by its config's org_types (sent as is, e.g.
+ * "{academy}"). With the event's id, a competition that requires club
+ * membership lists only the clubs whose membership covers its date, plus
+ * "Individual" (compware ClubMembership); registering under another club is
+ * refused as club_membership_required.
+ */
+export async function eventAcademies(orgTypes, eventId) {
+    const query = {};
+    if (orgTypes) query.type = orgTypes;
+    if (eventId) query.event_id = eventId;
+    return list(await api('URL_COMP_EVENT_ACADEMIES', { query }));
 }
 
 // --- My registrations ---------------------------------------------------------

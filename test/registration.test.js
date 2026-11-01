@@ -96,3 +96,13 @@ test('competitors are grouped by age group and weight class, in compware\'s orde
     assert.deepEqual(groups.map((g) => [g.weight, g.members.map((m) => m.firstname)]), [['-56', ['A', 'B']], ['-62', ['C']]]);
     assert.deepEqual(calls[0].query, { event_id: '781', entry_id: '813', belt_id: '', age_id: '' }, 'belt / age sent empty when not chosen');
 });
+
+test('the form pre-fills with the athlete club, else school, else region, if the event lists it', async () => {
+    const { affiliationFor } = await import('../src/registration.js');
+    const athlete = { academy_id: 1, school_id: 2, region_id: 3 };
+    assert.equal(affiliationFor(athlete, [{ id: 1 }, { id: 2 }]), 1);
+    assert.equal(affiliationFor(athlete, [{ id: 2 }, { id: 3 }]), 2);
+    assert.equal(affiliationFor(athlete, [{ id: '3' }]), 3);
+    assert.equal(affiliationFor(athlete, [{ id: 9 }]), null);
+    assert.equal(affiliationFor({ academy_id: null }, [{ id: 1 }]), null);
+});

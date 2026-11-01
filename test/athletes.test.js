@@ -63,3 +63,35 @@ test('the ownership message no longer shows a phone number — and ignores one p
     assert.ok(!text.includes('99112233'));
     assert.ok(!text.includes('{phone}'));
 });
+
+test('choosing a club, school or region sends the athlete, the kind and the row; null clears it (0)', async () => {
+    const { calls } = setup({ '/comp/member/affiliation': () => ({ status: true, data: { id: 9, kind: 'school', school_id: null, academy: null } }) },
+        { initialStorage: SIGNED_IN });
+
+    await athletes.changeAthleteAffiliation(9, 'school', 44);
+    await athletes.changeAthleteAffiliation(9, 'region', null);
+    await athletes.changeAthleteClub(9, 7);
+    assert.equal(calls[0].init.method, 'POST');
+    assert.deepEqual(body(calls[0]), { member_id: 9, kind: 'school', academy_id: 44 });
+    assert.deepEqual(body(calls[1]), { member_id: 9, kind: 'region', academy_id: 0 });
+    assert.deepEqual(body(calls[2]), { member_id: 9, kind: 'club', academy_id: 7 });
+    assert.notEqual(errorMessage('academy_not_found', { fallback: '__none__' }), '__none__');
+});
+
+test('the pick lists come by kind; a failed call gives empty lists', async () => {
+    setup({ '/comp/member/affiliation/options': () => ({ status: true, data: { club: [{ id: 1, name: 'A' }], school: [{ id: 2, name: 'S' }], region: [] } }) },
+        { initialStorage: SIGNED_IN });
+    const opts = await athletes.affiliationOptions();
+    assert.deepEqual([opts.club.map((c) => c.id), opts.school.map((c) => c.id), opts.region], [[1], [2], []]);
+
+    setup({}, { initialStorage: {} });
+    const none = await athletes.affiliationOptions();
+    assert.deepEqual([none.ok, none.code, none.club], [false, 'auth_required', []]);
+});
+
+test('every affiliation kind has its strings', () => {
+    for (const a of athletes.AFFILIATIONS) {
+        assert.notEqual(tr(a.label), a.label);
+        assert.notEqual(tr(a.none), a.none);
+    }
+});

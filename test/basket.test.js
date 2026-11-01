@@ -51,6 +51,26 @@ test('paid only when compware says so', async () => {
     assert.equal(await payments.basketPaid(7), true);
 });
 
+test('the status of a basket: paid, withdrawn or pending', async () => {
+    let answer = { paid: false, withdrawn: true };
+    setup({ '/core/payment/basket/check': () => ({ status: true, data: answer }) }, { initialStorage: SIGNED_IN });
+    assert.equal(await payments.basketStatus(7), 'withdrawn');
+    answer = { paid: true, withdrawn: false };
+    assert.equal(await payments.basketStatus(7), 'paid');
+    answer = { paid: false, withdrawn: false };
+    assert.equal(await payments.basketStatus(7), 'pending');
+    assert.equal(await payments.basketPaid(7), false);
+});
+
+test('paying one entry names the signed-in payer', async () => {
+    const { calls } = setup({ '/core/payment/qpay/create/invoice': () => ({ status: false, code: 'in_basket' }) }, { initialStorage: SIGNED_IN });
+    const res = await payments.requestEventInvoice(27711);
+    assert.equal(calls[0].query.user_id, '8520');
+    assert.equal(calls[0].query.reg_id, '27711');
+    assert.equal(res.code, 'in_basket');
+    assert.equal(errorMessage('already_paid'), tr('basketLinePaid'));
+});
+
 test('every basket code and line reason has a message', () => {
     for (const code of ['no_lines', 'too_many_lines', 'payment_closed', 'lines_invalid', 'invoice_failed', 'basket_not_found', 'in_basket']) {
         assert.notEqual(errorMessage(code, { fallback: '__none__' }), '__none__', code);

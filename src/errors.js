@@ -51,6 +51,7 @@ export const ERROR_KEYS = Object.freeze({
     // Athlete access — who may act for an athlete record
     member_owned_by_other: 'memberOwnedByOther',
     member_not_found: 'memberNotFound',
+    academy_not_found: 'clubNotFound',
     member_has_registrations: 'memberHasRegistrations',
     already_yours: 'claimAlreadyYours',
     claim_pending: 'claimPending',
@@ -64,6 +65,9 @@ export const ERROR_KEYS = Object.freeze({
 
     // Sport attributes on a registration (each one's own code: attributes.attributeProblemText)
     attributes_invalid: 'attributesInvalid',
+
+    // A competition that requires club membership (compware ClubMembership)
+    club_membership_required: 'clubMembershipRequired',
 
     // Coach bulk entry (a refused row's own code: bulkEntry.ROW_ERROR_KEYS)
     event_not_found: 'bulkEventNotFound',
@@ -83,6 +87,7 @@ export const ERROR_KEYS = Object.freeze({
     invoice_failed: 'basketInvoiceFailed',
     basket_not_found: 'basketNotFound',
     in_basket: 'basketInBasket',
+    already_paid: 'basketLinePaid',
 
     // Refund requests
     not_paid: 'refundNotPaid',
