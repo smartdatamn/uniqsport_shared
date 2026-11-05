@@ -21,10 +21,10 @@ a string key is a major change.
   `regionFilter`, `clubSaved`, `saveClub`, `clubNotFound`; error code
   `academy_not_found`.
 
-- Club membership (compware ClubMembership, 2026-11-01):
-  `eventAcademies(orgTypes, eventId)` sends the event, so a competition that
-  requires club membership lists only clubs whose membership covers its date,
-  plus Individual. Error code `club_membership_required`; strings
+- Club membership (compware ClubMembership; compadmin's model, 2026-11-05):
+  a competition for member clubs lists the clubs staff tagged "МЖЖФ гишүүн
+  академи", plus Individual. `eventAcademies(orgTypes, eventId)` sends the
+  event. Error code `club_membership_required`; strings
   `clubMembershipRequired`, `bulkMembershipMissing`.
 
 ### Changed

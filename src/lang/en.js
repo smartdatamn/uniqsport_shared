@@ -788,8 +788,8 @@ export const en = {
     // Sport attributes and belts on the registration form
     attributesTitle: 'Additional information',
     attributesInvalid: 'Please fill in the additional information correctly.',
-    clubMembershipRequired: 'This club\'s federation membership does not cover the competition date. Check the club, or register as Individual.',
-    bulkMembershipMissing: 'This competition is for clubs with federation membership, and your club\'s membership for this year is not recorded. Athletes can still register one by one as Individual.',
+    clubMembershipRequired: 'This competition is for the federation\'s member clubs only. Check the club, or register as Individual.',
+    bulkMembershipMissing: 'This competition is for the federation\'s member clubs, and your club is not recorded as one. Athletes can still register one by one as Individual.',
     attrRequired: 'please fill this in',
     attrNumber: 'please enter a number',
     attrTooLong: 'at most {max} characters',
